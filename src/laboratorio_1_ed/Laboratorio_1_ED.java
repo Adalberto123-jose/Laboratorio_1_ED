@@ -4,6 +4,8 @@
  */
 package laboratorio_1_ed;
 
+import Frames.Inicio;
+
 /**
  *
  * @author ADALBERTO
@@ -14,7 +16,8 @@ public class Laboratorio_1_ED {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Inicio I = new Inicio();
+       I.setVisible(true);
     }
     
 }
