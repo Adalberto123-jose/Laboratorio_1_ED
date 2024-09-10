@@ -4,6 +4,11 @@
  */
 package Frames;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 /**
  *
  * @author ADALBERTO
@@ -15,7 +20,10 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-    }
+        // Añadir la imagen en el boton y ajustar su tamaño
+//        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
+//        Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/Play.png", Boton_Play, 10, 10));
+  }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,13 +35,40 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Boton_Play = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         Imagen_Inicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Imagen_Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inicio.jpg"))); // NOI18N
+        Boton_Play.setBackground(new java.awt.Color(102, 102, 102));
+        Boton_Play.setForeground(new java.awt.Color(255, 255, 255));
+        Boton_Play.setText("PLAY");
+        Boton_Play.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        Boton_Play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_PlayActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 140, 30));
+
+        jButton1.setText("Information");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setText("Aventura en el Bosque Misterioso");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 800, 60));
+
+        Imagen_Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inicio Imagen.jpg"))); // NOI18N
         jPanel1.add(Imagen_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1110, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -49,6 +84,17 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Boton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_PlayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Boton_PlayActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       this.setVisible(false);
+       Information inf = new Information();
+       
+       inf.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -84,9 +130,35 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
     }
+     // Ajusatar la imagen en el boton 
+//    public Icon setIcono(String url, JButton boton) {
+//        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+//
+//        int ancho = boton.getWidth();
+//
+//        int alto = boton.getHeight();
+//
+//        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
+//
+//        return icono;
+//    }
+    
+    // Pequeña animacion al dar click en el boton     
+//    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+//        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+//        int width = boton.getWidth() - ancho;
+//        int height = boton.getHeight() - altura;
+//
+//        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+//
+//        return icono;
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Boton_Play;
     private javax.swing.JLabel Imagen_Inicio;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
