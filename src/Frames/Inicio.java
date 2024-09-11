@@ -45,61 +45,91 @@ public class Inicio extends javax.swing.JFrame {
         BtMusica = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Imagen_Inicio = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtSalir.setText("Salir");
+        BtSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ExitButton3.png"))); // NOI18N
+        BtSalir.setBorderPainted(false);
+        BtSalir.setContentAreaFilled(false);
+        BtSalir.setFocusPainted(false);
         BtSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(BtSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, -1, -1));
+        jPanel1.add(BtSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Boton_Play.setBackground(new java.awt.Color(102, 102, 102));
         Boton_Play.setForeground(new java.awt.Color(255, 255, 255));
-        Boton_Play.setText("PLAY");
+        Boton_Play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PlayButton.png"))); // NOI18N
+        Boton_Play.setToolTipText("");
         Boton_Play.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        Boton_Play.setBorderPainted(false);
+        Boton_Play.setContentAreaFilled(false);
+        Boton_Play.setFocusPainted(false);
         Boton_Play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Boton_PlayActionPerformed(evt);
             }
         });
-        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 140, 30));
+        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 340, 120));
 
-        BtInformation.setText("Information");
+        BtInformation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InfoButton.png"))); // NOI18N
+        BtInformation.setBorderPainted(false);
+        BtInformation.setContentAreaFilled(false);
+        BtInformation.setFocusPainted(false);
         BtInformation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInformationActionPerformed(evt);
             }
         });
-        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 340, 120));
 
-        BtOpciones.setText("Opciones");
+        BtOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ConfigButton.png"))); // NOI18N
+        BtOpciones.setBorderPainted(false);
+        BtOpciones.setContentAreaFilled(false);
+        BtOpciones.setFocusPainted(false);
         BtOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtOpcionesActionPerformed(evt);
             }
         });
-        jPanel1.add(BtOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
+        jPanel1.add(BtOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 350, 130));
 
-        BtMusica.setText("Musica");
+        BtMusica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MusicButton.png"))); // NOI18N
+        BtMusica.setBorderPainted(false);
+        BtMusica.setContentAreaFilled(false);
+        BtMusica.setFocusPainted(false);
         BtMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtMusicaActionPerformed(evt);
             }
         });
-        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
+        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 340, 120));
 
         jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Aventura en el Bosque Misterioso");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 800, 60));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 750, 60));
 
         Imagen_Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inicio Imagen.jpg"))); // NOI18N
         jPanel1.add(Imagen_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1110, 620));
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,6 +243,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton BtOpciones;
     private javax.swing.JButton BtSalir;
     private javax.swing.JLabel Imagen_Inicio;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

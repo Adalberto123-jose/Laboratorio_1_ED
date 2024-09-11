@@ -41,49 +41,62 @@ public class Musica_Op extends javax.swing.JFrame {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtSi.setText("SI");
+        BtSi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GreenButton_1.png"))); // NOI18N
+        BtSi.setBorderPainted(false);
+        BtSi.setContentAreaFilled(false);
+        BtSi.setFocusable(false);
         BtSi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtSiActionPerformed(evt);
             }
         });
-        jPanel1.add(BtSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+        jPanel1.add(BtSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, -1));
 
-        BtNo.setText("No");
+        BtNo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedButton_1.png"))); // NOI18N
+        BtNo.setBorderPainted(false);
+        BtNo.setContentAreaFilled(false);
+        BtNo.setFocusPainted(false);
         BtNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtNoActionPerformed(evt);
             }
         });
-        jPanel1.add(BtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
+        jPanel1.add(BtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 180, 80));
 
         jLabel1.setText("MUSICA OPCION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
-        BtRegresar.setText("Regresar");
+        BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
+        BtRegresar.setBorderPainted(false);
+        BtRegresar.setContentAreaFilled(false);
+        BtRegresar.setFocusPainted(false);
         BtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
