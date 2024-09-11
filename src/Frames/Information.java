@@ -27,11 +27,20 @@ public class Information extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BtRegresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtRegresar.setText("Regresar");
+        BtRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtRegresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Informacion.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 800));
@@ -49,6 +58,13 @@ public class Information extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
+       this.setVisible(false);
+       Inicio in = new Inicio();
+       
+       in.setVisible(true);
+    }//GEN-LAST:event_BtRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,6 +102,7 @@ public class Information extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

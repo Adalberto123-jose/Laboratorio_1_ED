@@ -4,6 +4,7 @@
  */
 package Frames;
 
+import java.applet.AudioClip;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,8 +22,10 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         // Añadir la imagen en el boton y ajustar su tamaño
+        
 //        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
 //        Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/Play.png", Boton_Play, 10, 10));
+
   }
 
     /**
@@ -35,14 +38,25 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BtSalir = new javax.swing.JButton();
         Boton_Play = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BtInformation = new javax.swing.JButton();
+        BtOpciones = new javax.swing.JButton();
+        BtMusica = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Imagen_Inicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtSalir.setText("Salir");
+        BtSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, -1, -1));
 
         Boton_Play.setBackground(new java.awt.Color(102, 102, 102));
         Boton_Play.setForeground(new java.awt.Color(255, 255, 255));
@@ -53,15 +67,31 @@ public class Inicio extends javax.swing.JFrame {
                 Boton_PlayActionPerformed(evt);
             }
         });
-        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 140, 30));
+        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 140, 30));
 
-        jButton1.setText("Information");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtInformation.setText("Information");
+        BtInformation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtInformationActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, -1, -1));
+        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+
+        BtOpciones.setText("Opciones");
+        BtOpciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtOpcionesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
+
+        BtMusica.setText("Musica");
+        BtMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtMusicaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
@@ -89,12 +119,32 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Boton_PlayActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInformationActionPerformed
        this.setVisible(false);
        Information inf = new Information();
        
        inf.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtInformationActionPerformed
+
+    private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
+        System.exit(WIDTH);
+       
+    }//GEN-LAST:event_BtSalirActionPerformed
+
+    private void BtOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtOpcionesActionPerformed
+        this.setVisible(false);
+        Menu_Opciones op = new Menu_Opciones();
+        
+        op.setVisible(true);
+    }//GEN-LAST:event_BtOpcionesActionPerformed
+
+    private void BtMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMusicaActionPerformed
+        this.setVisible(false);
+        Musica_Op mu = new Musica_Op();
+        
+        mu.setVisible(true);
+        
+    }//GEN-LAST:event_BtMusicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,6 +181,7 @@ public class Inicio extends javax.swing.JFrame {
         });
     }
      // Ajusatar la imagen en el boton 
+    
 //    public Icon setIcono(String url, JButton boton) {
 //        ImageIcon icon = new ImageIcon(getClass().getResource(url));
 //
@@ -143,7 +194,8 @@ public class Inicio extends javax.swing.JFrame {
 //        return icono;
 //    }
     
-    // Pequeña animacion al dar click en el boton     
+    // Pequeña animacion al dar click en el boton 
+    
 //    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
 //        ImageIcon icon = new ImageIcon(getClass().getResource(url));
 //        int width = boton.getWidth() - ancho;
@@ -156,8 +208,11 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Play;
+    private javax.swing.JButton BtInformation;
+    private javax.swing.JButton BtMusica;
+    private javax.swing.JButton BtOpciones;
+    private javax.swing.JButton BtSalir;
     private javax.swing.JLabel Imagen_Inicio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
