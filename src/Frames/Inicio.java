@@ -22,11 +22,17 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         // Añadir la imagen en el boton y ajustar su tamaño
-        
-//        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
-//        Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/Play.png", Boton_Play, 10, 10));
 
-  }
+//        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
+
+        // Animacion de los botones al dar click
+        Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/PlayButton.png", Boton_Play, 10, 10));
+        BtInformation.setPressedIcon(setIconoPresionado("/imagenes/InfoButton.png", Boton_Play, 10, 10));
+        BtOpciones.setPressedIcon(setIconoPresionado("/imagenes/ConfigButton.png", Boton_Play, 10, 10));
+        BtMusica.setPressedIcon(setIconoPresionado("/imagenes/MusicButton.png", Boton_Play, 10, 10));
+        BtSalir.setPressedIcon(setIconoPresionado("/imagenes/ExitButton3.png", Boton_Play, 10, 10));
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,30 +156,30 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_Boton_PlayActionPerformed
 
     private void BtInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInformationActionPerformed
-       this.setVisible(false);
-       Information inf = new Information();
-       
-       inf.setVisible(true);
+        this.setVisible(false);
+        Information inf = new Information();
+
+        inf.setVisible(true);
     }//GEN-LAST:event_BtInformationActionPerformed
 
     private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
         System.exit(WIDTH);
-       
+
     }//GEN-LAST:event_BtSalirActionPerformed
 
     private void BtOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtOpcionesActionPerformed
         this.setVisible(false);
         Menu_Opciones op = new Menu_Opciones();
-        
+
         op.setVisible(true);
     }//GEN-LAST:event_BtOpcionesActionPerformed
 
     private void BtMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMusicaActionPerformed
         this.setVisible(false);
         Musica_Op mu = new Musica_Op();
-        
+
         mu.setVisible(true);
-        
+
     }//GEN-LAST:event_BtMusicaActionPerformed
 
     /**
@@ -210,8 +216,8 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
     }
-     // Ajusatar la imagen en el boton 
-    
+    // Ajusatar la imagen en el boton 
+
 //    public Icon setIcono(String url, JButton boton) {
 //        ImageIcon icon = new ImageIcon(getClass().getResource(url));
 //
@@ -223,18 +229,16 @@ public class Inicio extends javax.swing.JFrame {
 //
 //        return icono;
 //    }
-    
     // Pequeña animacion al dar click en el boton 
-    
-//    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
-//        ImageIcon icon = new ImageIcon(getClass().getResource(url));
-//        int width = boton.getWidth() - ancho;
-//        int height = boton.getHeight() - altura;
-//
-//        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
-//
-//        return icono;
-//    }
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+
+        return icono;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Play;
