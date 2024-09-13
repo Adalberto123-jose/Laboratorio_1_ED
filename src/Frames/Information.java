@@ -34,13 +34,16 @@ public class Information extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtRegresar.setText("Regresar");
+        BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
+        BtRegresar.setContentAreaFilled(false);
+        BtRegresar.setFocusPainted(false);
+        BtRegresar.setFocusable(false);
         BtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, -1, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Informacion.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 800));

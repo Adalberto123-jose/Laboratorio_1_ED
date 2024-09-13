@@ -30,7 +30,7 @@ public class Inicio extends javax.swing.JFrame {
         BtInformation.setPressedIcon(setIconoPresionado("/imagenes/InfoButton.png", Boton_Play, 10, 10));
         BtOpciones.setPressedIcon(setIconoPresionado("/imagenes/ConfigButton.png", Boton_Play, 10, 10));
         BtMusica.setPressedIcon(setIconoPresionado("/imagenes/MusicButton.png", Boton_Play, 10, 10));
-        BtSalir.setPressedIcon(setIconoPresionado("/imagenes/ExitButton3.png", Boton_Play, 10, 10));
+        BtSalir.setPressedIcon(setIconoPresionado("/imagenes/ExitButton3.png", Boton_Play, 2, 2));
 
     }
 
@@ -49,6 +49,7 @@ public class Inicio extends javax.swing.JFrame {
         BtInformation = new javax.swing.JButton();
         BtOpciones = new javax.swing.JButton();
         BtMusica = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Imagen_Inicio = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -81,7 +82,7 @@ public class Inicio extends javax.swing.JFrame {
                 Boton_PlayActionPerformed(evt);
             }
         });
-        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 340, 120));
+        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 350, 120));
 
         BtInformation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InfoButton.png"))); // NOI18N
         BtInformation.setBorderPainted(false);
@@ -92,7 +93,7 @@ public class Inicio extends javax.swing.JFrame {
                 BtInformationActionPerformed(evt);
             }
         });
-        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 340, 120));
+        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 350, 120));
 
         BtOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ConfigButton.png"))); // NOI18N
         BtOpciones.setBorderPainted(false);
@@ -114,7 +115,10 @@ public class Inicio extends javax.swing.JFrame {
                 BtMusicaActionPerformed(evt);
             }
         });
-        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 340, 120));
+        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 350, 120));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sparkle.gif"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 330, 280));
 
         jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
@@ -249,6 +253,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel Imagen_Inicio;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,8 +32,8 @@ public class Musica_Op extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         BtSi = new javax.swing.JButton();
         BtNo = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         BtRegresar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +57,7 @@ public class Musica_Op extends javax.swing.JFrame {
                 BtSiActionPerformed(evt);
             }
         });
-        jPanel1.add(BtSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 270, -1));
+        jPanel1.add(BtSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 270, -1));
 
         BtNo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedButton_1.png"))); // NOI18N
         BtNo.setBorderPainted(false);
@@ -68,35 +68,31 @@ public class Musica_Op extends javax.swing.JFrame {
                 BtNoActionPerformed(evt);
             }
         });
-        jPanel1.add(BtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, 180, 80));
+        jPanel1.add(BtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 180, 80));
 
-        jLabel1.setText("MUSICA OPCION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
-
+        BtRegresar.setBackground(new java.awt.Color(153, 195, 45));
         BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
         BtRegresar.setBorderPainted(false);
-        BtRegresar.setContentAreaFilled(false);
         BtRegresar.setFocusPainted(false);
         BtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuMusic.gif"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -164,7 +160,7 @@ public class Musica_Op extends javax.swing.JFrame {
     private javax.swing.JButton BtNo;
     private javax.swing.JButton BtRegresar;
     private javax.swing.JButton BtSi;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
