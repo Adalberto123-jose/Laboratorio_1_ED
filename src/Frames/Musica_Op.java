@@ -57,9 +57,9 @@ public class Musica_Op extends javax.swing.JFrame {
                 BtSiActionPerformed(evt);
             }
         });
-        jPanel1.add(BtSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 270, -1));
+        jPanel1.add(BtSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
 
-        BtNo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedButton_1.png"))); // NOI18N
+        BtNo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedButton2.png"))); // NOI18N
         BtNo.setBorderPainted(false);
         BtNo.setContentAreaFilled(false);
         BtNo.setFocusPainted(false);
@@ -68,11 +68,12 @@ public class Musica_Op extends javax.swing.JFrame {
                 BtNoActionPerformed(evt);
             }
         });
-        jPanel1.add(BtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 180, 80));
+        jPanel1.add(BtNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 190, 70));
 
-        BtRegresar.setBackground(new java.awt.Color(153, 195, 45));
+        BtRegresar.setBackground(new java.awt.Color(102, 146, 52));
         BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
         BtRegresar.setBorderPainted(false);
+        BtRegresar.setContentAreaFilled(false);
         BtRegresar.setFocusPainted(false);
         BtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,8 +82,8 @@ public class Musica_Op extends javax.swing.JFrame {
         });
         jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuMusic.gif"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 580));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuMusica.gif"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 590));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

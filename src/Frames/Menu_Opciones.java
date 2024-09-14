@@ -31,39 +31,60 @@ public class Menu_Opciones extends javax.swing.JFrame {
         BtMedio = new javax.swing.JButton();
         BtDificil = new javax.swing.JButton();
         BtRegresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtFacil.setText("Facil");
-        jPanel1.add(BtFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
+        BtFacil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EasyDifficulty.png"))); // NOI18N
+        BtFacil.setBorderPainted(false);
+        BtFacil.setContentAreaFilled(false);
+        BtFacil.setFocusPainted(false);
+        jPanel1.add(BtFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 270, 100));
 
-        BtMedio.setText("Medio");
-        jPanel1.add(BtMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        BtMedio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NormalDifficulty.png"))); // NOI18N
+        BtMedio.setToolTipText("");
+        BtMedio.setBorderPainted(false);
+        BtMedio.setContentAreaFilled(false);
+        BtMedio.setFocusable(false);
+        jPanel1.add(BtMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 260, 100));
 
-        BtDificil.setText("Dificil");
-        jPanel1.add(BtDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
+        BtDificil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/HardDifficulty.png"))); // NOI18N
+        BtDificil.setBorderPainted(false);
+        BtDificil.setContentAreaFilled(false);
+        BtDificil.setFocusable(false);
+        jPanel1.add(BtDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 260, 110));
 
-        BtRegresar.setText("Regresar");
+        BtRegresar.setBackground(new java.awt.Color(102, 146, 52));
+        BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
+        BtRegresar.setBorderPainted(false);
+        BtRegresar.setContentAreaFilled(false);
+        BtRegresar.setDefaultCapable(false);
+        BtRegresar.setFocusPainted(false);
+        BtRegresar.setFocusable(false);
         BtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuDificultad.gif"))); // NOI18N
+        jLabel1.setFocusable(false);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,6 +137,7 @@ public class Menu_Opciones extends javax.swing.JFrame {
     private javax.swing.JButton BtFacil;
     private javax.swing.JButton BtMedio;
     private javax.swing.JButton BtRegresar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
