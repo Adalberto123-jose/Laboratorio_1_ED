@@ -5,6 +5,10 @@
 package Frames;
 
 import java.applet.AudioClip;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
@@ -17,6 +21,9 @@ public class Musica_Op extends javax.swing.JFrame {
      */
     public Musica_Op() {
         initComponents();
+        BtSi.setPressedIcon(setIconoPresionado("/imagenes/GreenButton_1.png", BtSi, 10, 10));
+        BtNo.setPressedIcon(setIconoPresionado("/imagenes/RedButton2.png", BtNo, 10, 10));
+        BtRegresar.setPressedIcon(setIconoPresionado("/imagenes/GoBackButton.png", BtRegresar, 10, 10));
     }
     AudioClip music;
 
@@ -121,6 +128,15 @@ public class Musica_Op extends javax.swing.JFrame {
         music = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/Music2.wav"));
         music.play();
     }//GEN-LAST:event_BtSiActionPerformed
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+
+        return icono;
+    }
 
     /**
      * @param args the command line arguments

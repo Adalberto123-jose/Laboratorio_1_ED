@@ -1,20 +1,29 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Frames;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 /**
  *
- * @author HP
+ * @author ADALBERTO
  */
-public class Menu_Bienvenido extends javax.swing.JPanel {
+public class Menu_Bienvenido extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu_Bienvenido
      */
     public Menu_Bienvenido() {
         initComponents();
+
+        BtGo.setPressedIcon(setIconoPresionado("/imagenes/GoButtonBig.png", BtGo, 10, 10));
+        BtInfo.setPressedIcon(setIconoPresionado("/imagenes/InfoButton3.png", BtInfo, 10, 10));
+        BtRegresar.setPressedIcon(setIconoPresionado("/imagenes/GoBackButton.png", BtRegresar, 10, 10));
     }
 
     /**
@@ -26,71 +35,126 @@ public class Menu_Bienvenido extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         BtGo = new javax.swing.JButton();
         BtInfo = new javax.swing.JButton();
         BtRegresar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("jLabel1");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtGo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoButtonBig.png"))); // NOI18N
         BtGo.setContentAreaFilled(false);
-        BtGo.setFocusPainted(false);
         BtGo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtGoActionPerformed(evt);
             }
         });
-        add(BtGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
+        jPanel1.add(BtGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
 
         BtInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/infoButton3.png"))); // NOI18N
-        BtInfo.setBorderPainted(false);
         BtInfo.setContentAreaFilled(false);
-        BtInfo.setFocusPainted(false);
         BtInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInfoActionPerformed(evt);
             }
         });
-        add(BtInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, -1, -1));
+        jPanel1.add(BtInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, -1, -1));
 
-        BtRegresar.setBackground(new java.awt.Color(102, 146, 52));
         BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
-        BtRegresar.setBorder(null);
+        BtRegresar.setBorderPainted(false);
         BtRegresar.setContentAreaFilled(false);
-        BtRegresar.setFocusPainted(false);
         BtRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtRegresarActionPerformed(evt);
             }
         });
-        add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuBienvenida.gif"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuBienvenida.gif"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_BtGoActionPerformed
+
+    private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
+        this.setVisible(false);
+
+        Inicio in = new Inicio();
+        in.setVisible(true);
+    }//GEN-LAST:event_BtRegresarActionPerformed
 
     private void BtInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInfoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtInfoActionPerformed
 
-    private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtRegresarActionPerformed
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
 
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+
+        return icono;
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Menu_Bienvenido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Menu_Bienvenido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Menu_Bienvenido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Menu_Bienvenido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Menu_Bienvenido().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtGo;
     private javax.swing.JButton BtInfo;
     private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,11 @@
  */
 package Frames;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 /**
  *
  * @author ADALBERTO
@@ -15,6 +20,7 @@ public class Information extends javax.swing.JFrame {
      */
     public Information() {
         initComponents();
+        BtRegresar.setPressedIcon(setIconoPresionado("/imagenes/GoBackButton.png", BtRegresar, 10, 10));
     }
 
     /**
@@ -63,11 +69,20 @@ public class Information extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
-       this.setVisible(false);
-       Inicio in = new Inicio();
-       
-       in.setVisible(true);
+        this.setVisible(false);
+        Inicio in = new Inicio();
+
+        in.setVisible(true);
     }//GEN-LAST:event_BtRegresarActionPerformed
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+
+        return icono;
+    }
 
     /**
      * @param args the command line arguments

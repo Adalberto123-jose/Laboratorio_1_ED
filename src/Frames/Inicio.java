@@ -24,14 +24,13 @@ public class Inicio extends javax.swing.JFrame {
         // Añadir la imagen en el boton y ajustar su tamaño
 
 //        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
-
         // Animacion de los botones al dar click
         Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/PlayButton.png", Boton_Play, 10, 10));
         BtInformation.setPressedIcon(setIconoPresionado("/imagenes/InfoButton.png", Boton_Play, 10, 10));
         BtOpciones.setPressedIcon(setIconoPresionado("/imagenes/ConfigButton.png", Boton_Play, 10, 10));
         BtMusica.setPressedIcon(setIconoPresionado("/imagenes/MusicButton.png", Boton_Play, 10, 10));
         BtSalir.setPressedIcon(setIconoPresionado("/imagenes/ExitButton3.png", Boton_Play, 2, 2));
-
+        
     }
 
     /**
@@ -62,10 +61,10 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MapleLeaves.gif"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 280, 160));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 280, 160));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WaterMist.gif"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, -30, 480, 410));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 130, 220));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LeavesFallingGif.gif"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 0, 260, 170));
@@ -168,13 +167,16 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_PlayActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        
+        Menu_Bienvenido Bn = new Menu_Bienvenido();
+        Bn.setVisible(true);
     }//GEN-LAST:event_Boton_PlayActionPerformed
 
     private void BtInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInformationActionPerformed
         this.setVisible(false);
         Information inf = new Information();
-
+        
         inf.setVisible(true);
     }//GEN-LAST:event_BtInformationActionPerformed
 
@@ -186,14 +188,14 @@ public class Inicio extends javax.swing.JFrame {
     private void BtOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtOpcionesActionPerformed
         this.setVisible(false);
         Menu_Opciones op = new Menu_Opciones();
-
+        
         op.setVisible(true);
     }//GEN-LAST:event_BtOpcionesActionPerformed
 
     private void BtMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMusicaActionPerformed
         this.setVisible(false);
         Musica_Op mu = new Musica_Op();
-
+        
         mu.setVisible(true);
 
     }//GEN-LAST:event_BtMusicaActionPerformed
@@ -250,9 +252,9 @@ public class Inicio extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int width = boton.getWidth() - ancho;
         int height = boton.getHeight() - altura;
-
+        
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
-
+        
         return icono;
     }
 

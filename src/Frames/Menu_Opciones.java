@@ -4,6 +4,11 @@
  */
 package Frames;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 /**
  *
  * @author ADALBERTO
@@ -15,6 +20,12 @@ public class Menu_Opciones extends javax.swing.JFrame {
      */
     public Menu_Opciones() {
         initComponents();
+
+        BtFacil.setPressedIcon(setIconoPresionado("/imagenes/EasyDifficulty.png", BtFacil, 10, 10));
+        BtDificil.setPressedIcon(setIconoPresionado("/imagenes/HardDifficulty.png", BtDificil, 10, 10));
+        BtMedio.setPressedIcon(setIconoPresionado("/imagenes/NormalDifficulty.png", BtMedio, 10, 10));
+        BtRegresar.setPressedIcon(setIconoPresionado("/imagenes/GoBackButton.png", BtRegresar, 10, 10));
+
     }
 
     /**
@@ -93,9 +104,18 @@ public class Menu_Opciones extends javax.swing.JFrame {
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
         this.setVisible(false);
         Inicio in = new Inicio();
-        
+
         in.setVisible(true);
     }//GEN-LAST:event_BtRegresarActionPerformed
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+
+        return icono;
+    }
 
     /**
      * @param args the command line arguments
