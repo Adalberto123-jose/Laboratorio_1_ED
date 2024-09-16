@@ -46,7 +46,9 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtGo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoButtonBig.png"))); // NOI18N
+        BtGo.setBorderPainted(false);
         BtGo.setContentAreaFilled(false);
+        BtGo.setFocusPainted(false);
         BtGo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtGoActionPerformed(evt);
@@ -55,7 +57,9 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
         jPanel1.add(BtGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
 
         BtInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/infoButton3.png"))); // NOI18N
+        BtInfo.setBorderPainted(false);
         BtInfo.setContentAreaFilled(false);
+        BtInfo.setFocusPainted(false);
         BtInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInfoActionPerformed(evt);

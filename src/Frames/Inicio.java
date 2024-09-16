@@ -51,7 +51,6 @@ public class Inicio extends javax.swing.JFrame {
         BtInformation = new javax.swing.JButton();
         BtOpciones = new javax.swing.JButton();
         BtMusica = new javax.swing.JButton();
-        LabelBrillitos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Imagen_Inicio = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
@@ -64,7 +63,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 280, 160));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WaterMist.gif"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 130, 220));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 560, 220));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LeavesFallingGif.gif"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 0, 260, 170));
@@ -127,9 +126,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 350, 120));
-
-        LabelBrillitos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sparkle.gif"))); // NOI18N
-        jPanel1.add(LabelBrillitos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 330, 280));
 
         jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
@@ -265,7 +261,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton BtOpciones;
     private javax.swing.JButton BtSalir;
     private javax.swing.JLabel Imagen_Inicio;
-    private javax.swing.JLabel LabelBrillitos;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
