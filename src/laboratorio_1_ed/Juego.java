@@ -4,14 +4,18 @@ import java.util.Scanner;
 
 public class Juego {
 
-    Arbol arbol;  // Instancia del árbol
-    Nodo nodoActual;  // El nodo donde está el jugador
-    Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
+    private Arbol arbol;  // Instancia del árbol
+    private Nodo nodoActual;  // El nodo donde está el jugador
+    private Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
+    private int respuestasCorrectas;
+    private int respuestasIncorrectas;
 
-    // Constructor
-    public Juego() {
+    // Constructor que acepta una instancia de Acertijo
+    public Juego(Acertijo acertijos) {
+        this.acertijos = acertijos;
         arbol = new Arbol();
-        acertijos = new Acertijo();  // Inicializar la clase de acertijos
+        respuestasCorrectas = 0;
+        respuestasIncorrectas = 0;
         inicializarJuego();
     }
 
@@ -38,11 +42,23 @@ public class Juego {
         while (true) {
             if (nodoActual.hojaLlegada) {
                 System.out.println("¡Felicidades! Has llegado a la Hoja de Llegada.");
+                mostrarResultados();
                 break;
             }
 
             System.out.println("Estás en: " + nodoActual.escenario);
             System.out.println("Acertijo: " + nodoActual.enigma);  // Mostrar el acertijo actual
+
+            // Entrada del usuario para responder el acertijo
+            System.out.println("Tu respuesta: ");
+            String respuesta = sc.nextLine().toLowerCase();
+            if (verificarRespuesta(respuesta)) {
+                System.out.println("Respuesta correcta!");
+                respuestasCorrectas++;
+            } else {
+                System.out.println("Respuesta incorrecta.");
+                respuestasIncorrectas++;
+            }
 
             // Entrada del jugador para decidir hacia dónde ir
             System.out.println("Elige 'izquierda', 'derecha' o 'salir': ");
@@ -60,5 +76,19 @@ public class Juego {
             }
         }
         sc.close();
+    }
+
+    // Método para verificar la respuesta del usuario
+    private boolean verificarRespuesta(String respuesta) {
+        // Aquí se puede implementar la lógica para verificar la respuesta del acertijo
+        // Actualmente siempre devuelve true para propósitos de ejemplo
+        return true;
+    }
+
+    // Método para mostrar los resultados finales
+    private void mostrarResultados() {
+        System.out.println("Resultados finales:");
+        System.out.println("Respuestas correctas: " + respuestasCorrectas);
+        System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
     }
 }

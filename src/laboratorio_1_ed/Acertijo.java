@@ -6,26 +6,39 @@ import java.util.Random;
 
 public class Acertijo {
 
-    private List<String> acertijosDisponibles;  // Lista de acertijos aún no utilizados
-    private List<String> acertijosUsados;       // Lista de acertijos ya usados
+    // Listas de acertijos categorizados por dificultad
+    private List<String> acertijosFaciles;
+    private List<String> acertijosMedios;
+    private List<String> acertijosDificiles;
+    private List<String> acertijosDisponibles;
+    private List<String> acertijosUsados;
+    private String dificultadSeleccionada;
 
     // Constructor
     public Acertijo() {
+        acertijosFaciles = new ArrayList<>();
+        acertijosMedios = new ArrayList<>();
+        acertijosDificiles = new ArrayList<>();
         acertijosDisponibles = new ArrayList<>();
         acertijosUsados = new ArrayList<>();
 
-        // Agregar acertijos a la lista
-        acertijosDisponibles.add("¿Cuántas patas tiene una araña?");
-        acertijosDisponibles.add("¿Qué tiene cabeza, pero no cerebro?");
-        acertijosDisponibles.add("¿Qué se puede ver pero no tocar?");
-        acertijosDisponibles.add("¿Qué sube pero nunca baja?");
+        // Agregar acertijos con dificultad
+        acertijosFaciles.add("¿Cuántas patas tiene una araña?");
+        acertijosMedios.add("¿Qué tiene cabeza, pero no cerebro?");
+        acertijosDificiles.add("¿Qué se puede ver pero no tocar?");
+        acertijosDificiles.add("¿Qué sube pero nunca baja?");
         // Puedes agregar más acertijos aquí
     }
 
-    // Método para obtener un acertijo aleatorio que no se haya usado
+    // Establecer dificultad seleccionada
+    public void setDificultad(String dificultad) {
+        this.dificultadSeleccionada = dificultad;
+        reiniciarAcertijos(); // Reiniciar la lista de acertijos disponibles según la dificultad
+    }
+
+    // Obtener un acertijo aleatorio según la dificultad
     public String obtenerAcertijoAleatorio() {
         if (acertijosDisponibles.isEmpty()) {
-            // Si todos los acertijos ya fueron usados, puedes reiniciar o manejar de otra forma
             System.out.println("Todos los acertijos ya han sido utilizados.");
             return null;
         }
@@ -42,9 +55,16 @@ public class Acertijo {
         return acertijoSeleccionado;
     }
 
-    // Método para reiniciar los acertijos si es necesario (opcional)
-    public void reiniciarAcertijos() {
-        acertijosDisponibles.addAll(acertijosUsados);
+    // Reiniciar los acertijos disponibles según la dificultad seleccionada
+    private void reiniciarAcertijos() {
+        acertijosDisponibles.clear();
+        if (dificultadSeleccionada.equals("fácil")) {
+            acertijosDisponibles.addAll(acertijosFaciles);
+        } else if (dificultadSeleccionada.equals("medio")) {
+            acertijosDisponibles.addAll(acertijosMedios);
+        } else if (dificultadSeleccionada.equals("dificil")) {
+            acertijosDisponibles.addAll(acertijosDificiles);
+        }
         acertijosUsados.clear();
     }
 }
