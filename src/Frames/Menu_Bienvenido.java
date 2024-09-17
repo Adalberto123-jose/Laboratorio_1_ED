@@ -97,8 +97,10 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
     private void BtGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGoActionPerformed
         this.setVisible(false);
         
-        Nivel niv = new Nivel();
-        niv.setVisible(true);
+        NivelGO nvgo = new NivelGO();
+        nvgo.setVisible(true);
+        
+        
     }//GEN-LAST:event_BtGoActionPerformed
 
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed

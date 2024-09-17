@@ -52,8 +52,10 @@ public class ArbolFrame extends javax.swing.JFrame {
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
         this.setVisible(false);
         
-        Nivel nv = new Nivel();
-        nv.setVisible(true);
+        NivelGO nvgo = new NivelGO();
+        nvgo.setVisible(true);
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_BtRegresarActionPerformed
 
