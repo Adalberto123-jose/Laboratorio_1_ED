@@ -81,8 +81,6 @@ public class Juego {
                 System.out.println("La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
             }
 
-        
-
             // Navegar al siguiente nodo
             System.out.println("¿A dónde quieres ir? (izquierda/derecha/salir)");
             String eleccion = sc.nextLine().toLowerCase();
@@ -121,17 +119,4 @@ public class Juego {
         System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
     }
 
-    // Método para verificar la respuesta del usuario
-    private boolean verificarRespuesta(String respuesta) {
-        // Aquí se puede implementar la lógica para verificar la respuesta del acertijo
-        // Actualmente siempre devuelve true para propósitos de ejemplo
-        return true;
-    }
-
-    // Método para mostrar los resultados finales
-    private void mostrarResultados() {
-        System.out.println("Resultados finales:");
-        System.out.println("Respuestas correctas: " + respuestasCorrectas);
-        System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
-    }
 }
