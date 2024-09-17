@@ -67,6 +67,19 @@ public class Juego {
                 continue;
             }
 
+            // Verificar si el jugador llega a un nodo hoja que no es la Hoja de Llegada
+            if (!nodoActual.hojaLlegada && (nodoActual.izquierda == null && nodoActual.derecha == null)) {
+                System.out.println("No has llegado a la Hoja de Llegada. Sigue buscando.");
+
+                // Muestra los nodos hasta el punto actual
+                System.out.println("Estos son los escenarios que has visitado hasta ahora:");
+                arbol.recorrerArbol(nodoActual);
+
+                // Busca y muestra la Hoja de Llegada real
+                Nodo hojaDeLlegada = arbol.buscarHojaDeLlegada(arbol.raiz);
+                System.out.println("La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
+            }
+
             // Navegar al siguiente nodo
             System.out.println("¿A dónde quieres ir? (izquierda/derecha/salir)");
             String eleccion = sc.nextLine().toLowerCase();
