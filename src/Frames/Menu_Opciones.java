@@ -8,6 +8,8 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import laboratorio_1_ed.Acertijo;
 
 /**
  *
@@ -18,8 +20,12 @@ public class Menu_Opciones extends javax.swing.JFrame {
     /**
      * Creates new form Menu_Opciones
      */
+    private Acertijo acertijo;
+    
     public Menu_Opciones() {
         initComponents();
+        
+        acertijo = new Acertijo();
 
         BtFacil.setPressedIcon(setIconoPresionado("/imagenes/EasyDifficulty.png", BtFacil, 10, 10));
         BtDificil.setPressedIcon(setIconoPresionado("/imagenes/HardDifficulty.png", BtDificil, 10, 10));
@@ -52,6 +58,11 @@ public class Menu_Opciones extends javax.swing.JFrame {
         BtFacil.setBorderPainted(false);
         BtFacil.setContentAreaFilled(false);
         BtFacil.setFocusPainted(false);
+        BtFacil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtFacilActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtFacil, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 270, 100));
 
         BtMedio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NormalDifficulty.png"))); // NOI18N
@@ -59,12 +70,22 @@ public class Menu_Opciones extends javax.swing.JFrame {
         BtMedio.setBorderPainted(false);
         BtMedio.setContentAreaFilled(false);
         BtMedio.setFocusable(false);
+        BtMedio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtMedioActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtMedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 260, 100));
 
         BtDificil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/HardDifficulty.png"))); // NOI18N
         BtDificil.setBorderPainted(false);
         BtDificil.setContentAreaFilled(false);
         BtDificil.setFocusable(false);
+        BtDificil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtDificilActionPerformed(evt);
+            }
+        });
         jPanel1.add(BtDificil, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 260, 110));
 
         BtRegresar.setBackground(new java.awt.Color(102, 146, 52));
@@ -107,6 +128,23 @@ public class Menu_Opciones extends javax.swing.JFrame {
 
         in.setVisible(true);
     }//GEN-LAST:event_BtRegresarActionPerformed
+
+    private void BtFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtFacilActionPerformed
+     acertijo.setDificultad("fácil");
+        JOptionPane.showMessageDialog(this, "Dificultad fácil seleccionada");
+    }//GEN-LAST:event_BtFacilActionPerformed
+
+    private void BtMedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMedioActionPerformed
+     acertijo.setDificultad("medio");
+        JOptionPane.showMessageDialog(this, "Dificultad media seleccionada");  
+    }//GEN-LAST:event_BtMedioActionPerformed
+
+    private void BtDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDificilActionPerformed
+        acertijo.setDificultad("dificil");
+        JOptionPane.showMessageDialog(this, "Dificultad difícil seleccionada");
+    }//GEN-LAST:event_BtDificilActionPerformed
+
+    
     public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int width = boton.getWidth() - ancho;

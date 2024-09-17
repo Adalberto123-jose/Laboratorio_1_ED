@@ -48,11 +48,11 @@ public class Nivel extends javax.swing.JFrame {
                 BtRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WateryForest.gif"))); // NOI18N
         jLabel1.setFocusCycleRoot(true);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 530));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -30, 910, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, 510));
 
@@ -68,7 +68,6 @@ public class Nivel extends javax.swing.JFrame {
 
         Inicio in = new Inicio();
         in.setVisible(true);
-// TODO add your handling code here:
     }//GEN-LAST:event_BtRegresarActionPerformed
 
     /**
