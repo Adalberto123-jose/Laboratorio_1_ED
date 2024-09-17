@@ -27,6 +27,7 @@ public class Nivel extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BtRegresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,6 +40,16 @@ public class Nivel extends javax.swing.JFrame {
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
+        BtRegresar.setBorderPainted(false);
+        BtRegresar.setContentAreaFilled(false);
+        BtRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtRegresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WateryForest.gif"))); // NOI18N
         jLabel1.setFocusCycleRoot(true);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 530));
@@ -47,6 +58,18 @@ public class Nivel extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
+       this.setVisible(false);
+        
+        //Menu_Bienvenido Bn = new Menu_Bienvenido();
+        //Bn.setVisible(true);       
+        
+
+        Inicio in = new Inicio();
+        in.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_BtRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -84,6 +107,7 @@ public class Nivel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

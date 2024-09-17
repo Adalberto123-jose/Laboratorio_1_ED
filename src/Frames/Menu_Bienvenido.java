@@ -95,7 +95,10 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtGoActionPerformed
-
+        this.setVisible(false);
+        
+        Nivel niv = new Nivel();
+        niv.setVisible(true);
     }//GEN-LAST:event_BtGoActionPerformed
 
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
@@ -106,7 +109,11 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
     }//GEN-LAST:event_BtRegresarActionPerformed
 
     private void BtInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInfoActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Information inf = new Information();
+        
+        inf.setVisible(true);
+// TODO add your handling code here:
     }//GEN-LAST:event_BtInfoActionPerformed
 
     public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
