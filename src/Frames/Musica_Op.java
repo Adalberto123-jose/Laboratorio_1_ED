@@ -90,7 +90,7 @@ public class Musica_Op extends javax.swing.JFrame {
         jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 50, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/JungleMenuMusica.gif"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 590));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -50,7 +50,7 @@ public class Information extends javax.swing.JFrame {
                 BtRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 60, -1));
+        jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Informacion.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 730));
