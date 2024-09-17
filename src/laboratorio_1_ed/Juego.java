@@ -11,7 +11,7 @@ public class Juego {
     private int respuestasIncorrectas;
     private int puntaje;
 
-    // Constructor
+    // Constructor que acepta una instancia de Acertijo
     public Juego() {
         arbol = new Arbol();
         acertijos = new Acertijo();  // Inicializar la clase de acertijos
@@ -44,6 +44,7 @@ public class Juego {
         while (true) {
             if (nodoActual.hojaLlegada) {
                 System.out.println("¡Felicidades! Has llegado a la Hoja de Llegada.");
+                mostrarResultados();
                 break;
             }
 
@@ -80,6 +81,8 @@ public class Juego {
                 System.out.println("La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
             }
 
+        
+
             // Navegar al siguiente nodo
             System.out.println("¿A dónde quieres ir? (izquierda/derecha/salir)");
             String eleccion = sc.nextLine().toLowerCase();
@@ -114,6 +117,20 @@ public class Juego {
     private void mostrarResultados() {
         System.out.println("Fin del juego.");
         System.out.println("Puntaje total: " + puntaje);
+        System.out.println("Respuestas correctas: " + respuestasCorrectas);
+        System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
+    }
+
+    // Método para verificar la respuesta del usuario
+    private boolean verificarRespuesta(String respuesta) {
+        // Aquí se puede implementar la lógica para verificar la respuesta del acertijo
+        // Actualmente siempre devuelve true para propósitos de ejemplo
+        return true;
+    }
+
+    // Método para mostrar los resultados finales
+    private void mostrarResultados() {
+        System.out.println("Resultados finales:");
         System.out.println("Respuestas correctas: " + respuestasCorrectas);
         System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
     }

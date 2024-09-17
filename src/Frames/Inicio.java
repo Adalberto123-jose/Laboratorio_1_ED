@@ -22,11 +22,16 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         // Añadir la imagen en el boton y ajustar su tamaño
-        
-//        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
-//        Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/Play.png", Boton_Play, 10, 10));
 
-  }
+//        Boton_Play.setIcon(setIcono("/imagenes/pngwing.com.png", Boton_Play));
+        // Animacion de los botones al dar click
+        Boton_Play.setPressedIcon(setIconoPresionado("/imagenes/PlayButton.png", Boton_Play, 10, 10));
+        BtInformation.setPressedIcon(setIconoPresionado("/imagenes/InfoButton.png", Boton_Play, 10, 10));
+        BtOpciones.setPressedIcon(setIconoPresionado("/imagenes/ConfigButton.png", Boton_Play, 10, 10));
+        BtMusica.setPressedIcon(setIconoPresionado("/imagenes/MusicButton.png", Boton_Play, 10, 10));
+        BtSalir.setPressedIcon(setIconoPresionado("/imagenes/ExitButton3.png", Boton_Play, 2, 2));
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +43,9 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         BtSalir = new javax.swing.JButton();
         Boton_Play = new javax.swing.JButton();
         BtInformation = new javax.swing.JButton();
@@ -45,61 +53,100 @@ public class Inicio extends javax.swing.JFrame {
         BtMusica = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Imagen_Inicio = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BtSalir.setText("Salir");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MapleLeaves.gif"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 280, 160));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WaterMist.gif"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 560, 220));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LeavesFallingGif.gif"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(626, 0, 260, 170));
+
+        BtSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ExitButton3.png"))); // NOI18N
+        BtSalir.setBorderPainted(false);
+        BtSalir.setContentAreaFilled(false);
+        BtSalir.setFocusPainted(false);
         BtSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(BtSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, -1, -1));
+        jPanel1.add(BtSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Boton_Play.setBackground(new java.awt.Color(102, 102, 102));
         Boton_Play.setForeground(new java.awt.Color(255, 255, 255));
-        Boton_Play.setText("PLAY");
+        Boton_Play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/PlayButton.png"))); // NOI18N
+        Boton_Play.setToolTipText("");
         Boton_Play.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        Boton_Play.setBorderPainted(false);
+        Boton_Play.setContentAreaFilled(false);
+        Boton_Play.setFocusPainted(false);
         Boton_Play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Boton_PlayActionPerformed(evt);
             }
         });
-        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 140, 30));
+        jPanel1.add(Boton_Play, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 350, 120));
 
-        BtInformation.setText("Information");
+        BtInformation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/InfoButton.png"))); // NOI18N
+        BtInformation.setBorderPainted(false);
+        BtInformation.setContentAreaFilled(false);
+        BtInformation.setFocusPainted(false);
         BtInformation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtInformationActionPerformed(evt);
             }
         });
-        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+        jPanel1.add(BtInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 350, 120));
 
-        BtOpciones.setText("Opciones");
+        BtOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ConfigButton.png"))); // NOI18N
+        BtOpciones.setBorderPainted(false);
+        BtOpciones.setContentAreaFilled(false);
+        BtOpciones.setFocusPainted(false);
         BtOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtOpcionesActionPerformed(evt);
             }
         });
-        jPanel1.add(BtOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
+        jPanel1.add(BtOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 350, 130));
 
-        BtMusica.setText("Musica");
+        BtMusica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MusicButton.png"))); // NOI18N
+        BtMusica.setBorderPainted(false);
+        BtMusica.setContentAreaFilled(false);
+        BtMusica.setFocusPainted(false);
         BtMusica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtMusicaActionPerformed(evt);
             }
         });
-        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, -1));
+        jPanel1.add(BtMusica, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 350, 120));
 
         jLabel1.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Aventura en el Bosque Misterioso");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 800, 60));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Titulo Juego.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 750, 190));
 
         Imagen_Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inicio Imagen.jpg"))); // NOI18N
-        jPanel1.add(Imagen_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 1110, 620));
+        jPanel1.add(Imagen_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -7, 1110, -1));
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,19 +163,22 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_PlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_PlayActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        
+        Menu_Bienvenido Bn = new Menu_Bienvenido();
+        Bn.setVisible(true);
     }//GEN-LAST:event_Boton_PlayActionPerformed
 
     private void BtInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInformationActionPerformed
-       this.setVisible(false);
-       Information inf = new Information();
-       
-       inf.setVisible(true);
+        this.setVisible(false);
+        Information inf = new Information();
+        
+        inf.setVisible(true);
     }//GEN-LAST:event_BtInformationActionPerformed
 
     private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
         System.exit(WIDTH);
-       
+
     }//GEN-LAST:event_BtSalirActionPerformed
 
     private void BtOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtOpcionesActionPerformed
@@ -143,7 +193,7 @@ public class Inicio extends javax.swing.JFrame {
         Musica_Op mu = new Musica_Op();
         
         mu.setVisible(true);
-        
+
     }//GEN-LAST:event_BtMusicaActionPerformed
 
     /**
@@ -180,8 +230,8 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
     }
-     // Ajusatar la imagen en el boton 
-    
+    // Ajusatar la imagen en el boton 
+
 //    public Icon setIcono(String url, JButton boton) {
 //        ImageIcon icon = new ImageIcon(getClass().getResource(url));
 //
@@ -193,18 +243,16 @@ public class Inicio extends javax.swing.JFrame {
 //
 //        return icono;
 //    }
-    
     // Pequeña animacion al dar click en el boton 
-    
-//    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
-//        ImageIcon icon = new ImageIcon(getClass().getResource(url));
-//        int width = boton.getWidth() - ancho;
-//        int height = boton.getHeight() - altura;
-//
-//        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
-//
-//        return icono;
-//    }
+    public Icon setIconoPresionado(String url, JButton boton, int ancho, int altura) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(url));
+        int width = boton.getWidth() - ancho;
+        int height = boton.getHeight() - altura;
+        
+        ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
+        
+        return icono;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_Play;
@@ -213,7 +261,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton BtOpciones;
     private javax.swing.JButton BtSalir;
     private javax.swing.JLabel Imagen_Inicio;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
