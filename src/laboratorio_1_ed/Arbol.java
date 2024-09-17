@@ -15,29 +15,30 @@ public class Arbol {
         if (raiz == null) {
             raiz = nuevoNodo;  // Si el árbol está vacío, este será el primer nodo
         } else {
-            insertarEnABB(raiz, nuevoNodo);  // Inserta el nuevo nodo siguiendo la lógica de ABB
+            // Insertar el nuevo nodo siguiendo la lógica de ABB
+            Nodo actual = raiz;
+            Nodo padre = null;
+
+            while (true) {
+                padre = actual;
+                if (nuevoNodo.escenario.compareTo(actual.escenario) < 0) {
+                    // El escenario del nuevo nodo es menor, se va al subárbol izquierdo
+                    actual = actual.izquierda;
+                    if (actual == null) {
+                        padre.izquierda = nuevoNodo;
+                        break;
+                    }
+                } else {
+                    // El escenario del nuevo nodo es mayor o igual, se va al subárbol derecho
+                    actual = actual.derecha;
+                    if (actual == null) {
+                        padre.derecha = nuevoNodo;
+                        break;
+                    }
+                }
+            }
         }
         return nuevoNodo;
-    }
-
-    // Método recursivo para insertar un nodo en el árbol ABB
-    private void insertarEnABB(Nodo actual, Nodo nuevoNodo) {
-        // Compara el escenario para decidir en qué subárbol insertar el nuevo nodo
-        if (nuevoNodo.escenario.compareTo(actual.escenario) < 0) {
-            // El escenario del nuevo nodo es menor, se va al subárbol izquierdo
-            if (actual.izquierda == null) {
-                actual.izquierda = nuevoNodo;
-            } else {
-                insertarEnABB(actual.izquierda, nuevoNodo);
-            }
-        } else {
-            // El escenario del nuevo nodo es mayor o igual, se va al subárbol derecho
-            if (actual.derecha == null) {
-                actual.derecha = nuevoNodo;
-            } else {
-                insertarEnABB(actual.derecha, nuevoNodo);
-            }
-        }
     }
 
     // Método para buscar la hoja de llegada
@@ -55,5 +56,47 @@ public class Arbol {
             recorrerArbol(nodo.izquierda);
             recorrerArbol(nodo.derecha);
         }
+    }
+
+    // Método para actualizar un nodo
+    public void actualizarNodo(Nodo nodo, String nuevoEscenario, String nuevoEnigma, boolean nuevaHojaLlegada) {
+        if (nodo != null) {
+            nodo.escenario = nuevoEscenario;
+            nodo.enigma = nuevoEnigma;
+            nodo.hojaLlegada = nuevaHojaLlegada;
+        }
+    }
+
+    // Método para eliminar un nodo
+    public Nodo eliminarNodo(Nodo raiz, String escenario) {
+        if (raiz == null) {
+            return null;
+        }
+        if (escenario.compareTo(raiz.escenario) < 0) {
+            raiz.izquierda = eliminarNodo(raiz.izquierda, escenario);
+        } else if (escenario.compareTo(raiz.escenario) > 0) {
+            raiz.derecha = eliminarNodo(raiz.derecha, escenario);
+        } else {
+            // Nodo con el escenario encontrado
+            if (raiz.izquierda == null) {
+                return raiz.derecha;
+            } else if (raiz.derecha == null) {
+                return raiz.izquierda;
+            }
+            // Nodo con dos hijos
+            Nodo temp = obtenerNodoMinimo(raiz.derecha);
+            raiz.escenario = temp.escenario;
+            raiz.enigma = temp.enigma;
+            raiz.hojaLlegada = temp.hojaLlegada;
+            raiz.derecha = eliminarNodo(raiz.derecha, temp.escenario);
+        }
+        return raiz;
+    }
+
+    private Nodo obtenerNodoMinimo(Nodo nodo) {
+        while (nodo.izquierda != null) {
+            nodo = nodo.izquierda;
+        }
+        return nodo;
     }
 }
