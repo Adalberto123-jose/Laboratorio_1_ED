@@ -4,14 +4,29 @@ import java.util.Scanner;
 
 public class Juego {
 
+<<<<<<< Updated upstream
     Arbol arbol;  // Instancia del árbol
     Nodo nodoActual;  // El nodo donde está el jugador
     Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
+=======
+    private Arbol arbol;  // Instancia del árbol
+    private Nodo nodoActual;  // El nodo donde está el jugador
+    private Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
+    private int respuestasCorrectas;
+    private int respuestasIncorrectas;
+    private int puntaje;
+>>>>>>> Stashed changes
 
     // Constructor
     public Juego() {
         arbol = new Arbol();
+<<<<<<< Updated upstream
         acertijos = new Acertijo();  // Inicializar la clase de acertijos
+=======
+        respuestasCorrectas = 0;
+        respuestasIncorrectas = 0;
+        puntaje = 0;
+>>>>>>> Stashed changes
         inicializarJuego();
     }
 
@@ -44,21 +59,66 @@ public class Juego {
             System.out.println("Estás en: " + nodoActual.escenario);
             System.out.println("Acertijo: " + nodoActual.enigma);  // Mostrar el acertijo actual
 
+<<<<<<< Updated upstream
             // Entrada del jugador para decidir hacia dónde ir
             System.out.println("Elige 'izquierda', 'derecha' o 'salir': ");
-            String eleccion = sc.nextLine().toLowerCase();
-
-            if (eleccion.equals("salir")) {
-                System.out.println("Gracias por jugar. ¡Hasta la próxima!");
-                break;
-            } else if (eleccion.equals("izquierda") && nodoActual.izquierda != null) {
-                nodoActual = nodoActual.izquierda;
-            } else if (eleccion.equals("derecha") && nodoActual.derecha != null) {
-                nodoActual = nodoActual.derecha;
+=======
+            // Entrada del usuario para responder el acertijo
+            System.out.println("Tu respuesta: ");
+            String respuesta = sc.nextLine().toLowerCase();
+            if (verificarRespuesta(respuesta)) {
+                System.out.println("Respuesta correcta!");
+                respuestasCorrectas++;
+                puntaje += 3;  // Incrementar puntaje por respuesta correcta
             } else {
-                System.out.println("No puedes ir en esa dirección. Intenta de nuevo.");
+                System.out.println("Respuesta incorrecta. Intentaré con otro acertijo.");
+                nodoActual.enigma = acertijos.obtenerAcertijoAleatorio();  // Proporcionar nuevo acertijo
+                respuestasIncorrectas++;
+                if (respuestasIncorrectas % 3 == 0) {
+                    puntaje -= 1;  // Penalización por errores múltiples
+                }
+                continue;
+            }
+
+            // Navegar al siguiente nodo
+            System.out.println("¿A dónde quieres ir? (izquierda/derecha/salir)");
+>>>>>>> Stashed changes
+            String eleccion = sc.nextLine().toLowerCase();
+            if (eleccion.equals("salir")) {
+                mostrarResultados();
+                break;
+            } else if (eleccion.equals("izquierda")) {
+                if (nodoActual.izquierda != null) {
+                    nodoActual = nodoActual.izquierda;
+                } else {
+                    System.out.println("No hay un camino a la izquierda.");
+                }
+            } else if (eleccion.equals("derecha")) {
+                if (nodoActual.derecha != null) {
+                    nodoActual = nodoActual.derecha;
+                } else {
+                    System.out.println("No hay un camino a la derecha.");
+                }
+            } else {
+                System.out.println("Opción no válida.");
             }
         }
-        sc.close();
     }
+<<<<<<< Updated upstream
+=======
+
+    // Método para verificar la respuesta del usuario
+    private boolean verificarRespuesta(String respuesta) {
+        // Lógica simple para verificar respuestas (puede mejorarse)
+        return respuesta.contains("futuro") || respuesta.contains("segundos") || respuesta.contains("aguja");
+    }
+
+    // Método para mostrar los resultados finales
+    private void mostrarResultados() {
+        System.out.println("Fin del juego.");
+        System.out.println("Puntaje total: " + puntaje);
+        System.out.println("Respuestas correctas: " + respuestasCorrectas);
+        System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
+    }
+>>>>>>> Stashed changes
 }
