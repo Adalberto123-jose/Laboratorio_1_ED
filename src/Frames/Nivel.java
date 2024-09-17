@@ -27,7 +27,10 @@ public class Nivel extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BtIzquierda = new javax.swing.JButton();
+        BtDerecha = new javax.swing.JButton();
         BtRegresar = new javax.swing.JButton();
+        BtIrAlArbol = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,6 +43,26 @@ public class Nivel extends javax.swing.JFrame {
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LetreroIzquierda.png"))); // NOI18N
+        BtIzquierda.setBorderPainted(false);
+        BtIzquierda.setContentAreaFilled(false);
+        BtIzquierda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtIzquierdaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
+
+        BtDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LetreroDerecha.png"))); // NOI18N
+        BtDerecha.setBorderPainted(false);
+        BtDerecha.setContentAreaFilled(false);
+        BtDerecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtDerechaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+
         BtRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GoBackButton.png"))); // NOI18N
         BtRegresar.setBorderPainted(false);
         BtRegresar.setContentAreaFilled(false);
@@ -49,6 +72,16 @@ public class Nivel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(BtRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        BtIrAlArbol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IrAlArbol.png"))); // NOI18N
+        BtIrAlArbol.setBorderPainted(false);
+        BtIrAlArbol.setContentAreaFilled(false);
+        BtIrAlArbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtIrAlArbolActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtIrAlArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WateryForest.gif"))); // NOI18N
         jLabel1.setFocusCycleRoot(true);
@@ -62,13 +95,28 @@ public class Nivel extends javax.swing.JFrame {
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
        this.setVisible(false);
         
-        //Menu_Bienvenido Bn = new Menu_Bienvenido();
-        //Bn.setVisible(true);       
+        Menu_Bienvenido Bn = new Menu_Bienvenido();
+        Bn.setVisible(true);       
         
 
-        Inicio in = new Inicio();
-        in.setVisible(true);
+       
     }//GEN-LAST:event_BtRegresarActionPerformed
+
+    private void BtIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIzquierdaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtIzquierdaActionPerformed
+
+    private void BtDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDerechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtDerechaActionPerformed
+
+    private void BtIrAlArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIrAlArbolActionPerformed
+        this.setVisible(false);
+        
+        ArbolFrame af = new ArbolFrame();
+        af.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtIrAlArbolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,6 +154,9 @@ public class Nivel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtDerecha;
+    private javax.swing.JButton BtIrAlArbol;
+    private javax.swing.JButton BtIzquierda;
     private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
