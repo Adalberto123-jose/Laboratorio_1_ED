@@ -54,7 +54,7 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
                 BtGoActionPerformed(evt);
             }
         });
-        jPanel1.add(BtGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
+        jPanel1.add(BtGo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
 
         BtInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/infoButton3.png"))); // NOI18N
         BtInfo.setBorderPainted(false);

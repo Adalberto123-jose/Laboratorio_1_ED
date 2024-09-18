@@ -76,7 +76,7 @@ public class NivelGO extends javax.swing.JFrame {
                 BtIrAlArbolActionPerformed(evt);
             }
         });
-        jPanel1.add(BtIrAlArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
+        jPanel1.add(BtIrAlArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WateryForest.gif"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
