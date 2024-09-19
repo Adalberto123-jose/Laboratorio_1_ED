@@ -17,23 +17,22 @@ public class Arbol {
         } else {
             // Insertar el nuevo nodo siguiendo la lógica de ABB
             Nodo actual = raiz;
-            Nodo padre = null;
+            
 
             while (true) {
-                padre = actual;
                 if (nuevoNodo.escenario.compareTo(actual.escenario) < 0) {
-                    // El escenario del nuevo nodo es menor, se va al subárbol izquierdo
-                    actual = actual.izquierda;
-                    if (actual == null) {
-                        padre.izquierda = nuevoNodo;
+                    if (actual.izquierda == null) {
+                        actual.izquierda = nuevoNodo;
                         break;
+                    } else {
+                        actual = actual.izquierda;
                     }
                 } else {
-                    // El escenario del nuevo nodo es mayor o igual, se va al subárbol derecho
-                    actual = actual.derecha;
-                    if (actual == null) {
-                        padre.derecha = nuevoNodo;
+                    if (actual.derecha == null) {
+                        actual.derecha = nuevoNodo;
                         break;
+                    } else {
+                        actual = actual.derecha;
                     }
                 }
             }

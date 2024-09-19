@@ -4,17 +4,25 @@
  */
 package Frames;
 
+import javax.swing.JOptionPane;
+import laboratorio_1_ed.Juego;
+
 /**
  *
  * @author HP
  */
 public class NivelGO extends javax.swing.JFrame {
 
+    private Juego juego;
+
     /**
      * Creates new form NivelGO
      */
     public NivelGO() {
         initComponents();
+        juego = new Juego();
+        actualizarEscenario();
+        juego.setDificultad("facil");
     }
 
     /**
@@ -85,7 +93,11 @@ public class NivelGO extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void actualizarEscenario() {
+        String escenario = juego.getNodoActualEscenario(); // Obtener el escenario actual
+        String acertijo = juego.getNodoActualEnigma(); // Obtener el acertijo actual
+        JOptionPane.showMessageDialog(this, "Estás en: " + escenario + "\nAcertijo: " + acertijo);
+    }
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
         this.setVisible(false);
         Menu_Bienvenido bn = new Menu_Bienvenido();
@@ -96,24 +108,38 @@ public class NivelGO extends javax.swing.JFrame {
 
     private void BtIrAlArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIrAlArbolActionPerformed
         this.setVisible(false);
-        
+
         ArbolFrame af = new ArbolFrame();
         af.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_BtIrAlArbolActionPerformed
 
     private void BtIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIzquierdaActionPerformed
+        boolean seMovio = juego.moverIzquierda();
+        if (seMovio) {
+            actualizarEscenario(); // Si se movió, actualizamos el escenario
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay camino a la izquierda.");
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_BtIzquierdaActionPerformed
 
     private void BtDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDerechaActionPerformed
-        // TODO add your handling code here:
+        boolean seMovio = juego.moverDerecha();
+        if (seMovio) {
+            actualizarEscenario(); // Si se movió, actualizamos el escenario
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay camino a la derecha.");
+        }
+    
+    // TODO add your handling code here:
     }//GEN-LAST:event_BtDerechaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -124,16 +150,28 @@ public class NivelGO extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NivelGO.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(NivelGO.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(NivelGO.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(NivelGO.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

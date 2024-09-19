@@ -22,6 +22,11 @@ public class Acertijo {
         acertijosDisponibles = new ArrayList<>();
         acertijosUsados = new ArrayList<>();
 
+        agregarAcertijos();
+
+    }
+
+    private void agregarAcertijos() {
         // Agregar acertijos con dificultad
         //Acertijos Fáciles
         acertijosFaciles.add("¿Cuántas patas tiene una araña?");//Seis, creo
@@ -90,9 +95,10 @@ public class Acertijo {
         acertijosDificiles.add("Ave colorida famosa en el folklore");//Tucan        
     }
 
-    // Establecer dificultad seleccionada
+// Establecer dificultad seleccionada
     public void setDificultad(String dificultad) {
         this.dificultadSeleccionada = dificultad;
+        System.out.println("Dificultad seleccionada: " + dificultad);  // Verificar la dificultad
         reiniciarAcertijos(); // Reiniciar la lista de acertijos disponibles según la dificultad
     }
 
@@ -103,6 +109,8 @@ public class Acertijo {
             return null;
         }
 
+        System.out.println("Seleccionando un acertijo aleatorio de la lista de " + acertijosDisponibles.size() + " acertijos.");
+
         // Selecciona un acertijo aleatorio
         Random random = new Random();
         int index = random.nextInt(acertijosDisponibles.size());
@@ -111,20 +119,33 @@ public class Acertijo {
         // Mueve el acertijo a la lista de usados y elimínalo de la lista disponible
         acertijosUsados.add(acertijoSeleccionado);
         acertijosDisponibles.remove(index);
+        
+        if (acertijosDisponibles.isEmpty()) {
+            System.out.println("Advertencia: ya no hay más acertijos disponibles.");
+        }
 
         return acertijoSeleccionado;
     }
 
     // Reiniciar los acertijos disponibles según la dificultad seleccionada
     private void reiniciarAcertijos() {
-        acertijosDisponibles.clear();
+        
+        acertijosUsados.clear();
+
+        // Rellenar acertijosDisponibles según la dificultad seleccionada
         if (dificultadSeleccionada.equals("fácil")) {
             acertijosDisponibles.addAll(acertijosFaciles);
         } else if (dificultadSeleccionada.equals("medio")) {
             acertijosDisponibles.addAll(acertijosMedios);
-        } else if (dificultadSeleccionada.equals("dificil")) {
+        } else if (dificultadSeleccionada.equals("difícil")) {
             acertijosDisponibles.addAll(acertijosDificiles);
         }
-        acertijosUsados.clear();
+
+        // Verificar que acertijosDisponibles no esté vacía
+        if (acertijosDisponibles.isEmpty()) {
+            System.out.println("No hay acertijos disponibles para la dificultad seleccionada: " + dificultadSeleccionada);
+        } else {
+            System.out.println("Acertijos disponibles cargados: " + acertijosDisponibles.size());
+        }
     }
 }

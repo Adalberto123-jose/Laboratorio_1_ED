@@ -33,6 +33,8 @@ public class Menu_Opciones extends javax.swing.JFrame {
         BtRegresar.setPressedIcon(setIconoPresionado("/imagenes/GoBackButton.png", BtRegresar, 10, 10));
 
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,6 +156,7 @@ public class Menu_Opciones extends javax.swing.JFrame {
 
         return icono;
     }
+    
 
     /**
      * @param args the command line arguments

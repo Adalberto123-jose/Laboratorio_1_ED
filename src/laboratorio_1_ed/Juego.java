@@ -1,6 +1,7 @@
 package laboratorio_1_ed;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Juego {
 
@@ -39,73 +40,66 @@ public class Juego {
     // Método para comenzar el juego
     public void iniciar() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¡Bienvenido a la Aventura en el Bosque Misterioso!");
+
+        JOptionPane.showMessageDialog(null, "¡Bienvenido a la Aventura en el Bosque Misterioso!");
 
         while (true) {
             if (nodoActual.hojaLlegada) {
-                System.out.println("¡Felicidades! Has llegado a la Hoja de Llegada.");
+                JOptionPane.showMessageDialog(null, "¡Felicidades! Has llegado a la Hoja de Llegada.");
                 mostrarResultados();
                 break;
             }
 
-            System.out.println("Estás en: " + nodoActual.escenario);
-            System.out.println("Acertijo: " + nodoActual.enigma);  // Mostrar el acertijo actual
+            JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
 
-            // Entrada del usuario para responder el acertijo
-            System.out.println("Tu respuesta: ");
-            String respuesta = sc.nextLine().toLowerCase();
-            if (verificarRespuesta(respuesta)) {
-                System.out.println("Respuesta correcta!");
+            // Respuesta del usuario
+            String respuesta = JOptionPane.showInputDialog(null, "Tu respuesta:");
+            if (verificarRespuesta(respuesta.toLowerCase())) {
+                JOptionPane.showMessageDialog(null, "Respuesta correcta!");
                 respuestasCorrectas++;
-                puntaje += 3;  // Incrementar puntaje por respuesta correcta
+                puntaje += 3;
             } else {
-                System.out.println("Respuesta incorrecta. Intentaré con otro acertijo.");
-                nodoActual.enigma = acertijos.obtenerAcertijoAleatorio();  // Proporcionar nuevo acertijo
+                JOptionPane.showMessageDialog(null, "Respuesta incorrecta. Intenta con otro acertijo.");
+                nodoActual.enigma = acertijos.obtenerAcertijoAleatorio();
                 respuestasIncorrectas++;
                 if (respuestasIncorrectas % 3 == 0) {
-                    puntaje -= 1;  // Penalización por errores múltiples
+                    puntaje -= 1;
                 }
                 continue;
             }
 
             // Verificar si el jugador llega a un nodo hoja que no es la Hoja de Llegada
             if (!nodoActual.hojaLlegada && (nodoActual.izquierda == null && nodoActual.derecha == null)) {
-                System.out.println("No has llegado a la Hoja de Llegada. Sigue buscando.");
-
-                // Muestra los nodos hasta el punto actual
-                System.out.println("Estos son los escenarios que has visitado hasta ahora:");
-                arbol.recorrerArbol(nodoActual);
-
-                // Busca y muestra la Hoja de Llegada real
-                Nodo hojaDeLlegada = arbol.buscarHojaDeLlegada(arbol.raiz);
-                System.out.println("La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
+                JOptionPane.showMessageDialog(null, "No has llegado a la Hoja de Llegada. Sigue buscando.");
             }
 
-            // Navegar al siguiente nodo
-            System.out.println("¿A dónde quieres ir? (izquierda/derecha/salir)");
-            String eleccion = sc.nextLine().toLowerCase();
-            if (eleccion.equals("salir")) {
-                mostrarResultados();
-                break;
-            } else if (eleccion.equals("izquierda")) {
-                if (nodoActual.izquierda != null) {
-                    nodoActual = nodoActual.izquierda;
-                } else {
-                    System.out.println("No hay un camino a la izquierda.");
-                }
-            } else if (eleccion.equals("derecha")) {
-                if (nodoActual.derecha != null) {
-                    nodoActual = nodoActual.derecha;
-                } else {
-                    System.out.println("No hay un camino a la derecha.");
-                }
-            } else {
-                System.out.println("Opción no válida.");
-            }
+            // Muestra los nodos hasta el punto actual
+            JOptionPane.showMessageDialog(null, "Estos son los escenarios que has visitado hasta ahora:");
+            arbol.recorrerArbol(nodoActual);
+
+            // Busca y muestra la Hoja de Llegada real
+            Nodo hojaDeLlegada = arbol.buscarHojaDeLlegada(arbol.raiz);
+            JOptionPane.showMessageDialog(null, "La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
+        }
+
+        // Navegar al siguiente nodo
+        String[] opciones = {"Izquierda", "Derecha", "Salir"};
+        int eleccion = JOptionPane.showOptionDialog(null, "¿A dónde quieres ir?", "Decisión",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+
+        if (eleccion == 2) { // Salir
+            mostrarResultados();
+            //aqui hay dique un break pero no se si si haga algo
+        } else if (eleccion == 0 && nodoActual.izquierda != null) {
+            nodoActual = nodoActual.izquierda;
+        } else if (eleccion == 1 && nodoActual.derecha != null) {
+            nodoActual = nodoActual.derecha;
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay camino en esa dirección.");
         }
     }
 
-    // Método para verificar la respuesta del usuario
+// Método para verificar la respuesta del usuario
     private boolean verificarRespuesta(String respuesta) {
         // Lógica simple para verificar respuestas (puede mejorarse)
         return respuesta.contains("futuro") || respuesta.contains("segundos") || respuesta.contains("aguja");
@@ -118,5 +112,36 @@ public class Juego {
         System.out.println("Respuestas correctas: " + respuestasCorrectas);
         System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
     }
+
+    public void setDificultad(String dificultad) {
+        acertijos.setDificultad(dificultad);
+    }
+
+    public boolean moverIzquierda() {
+        if (nodoActual.izquierda != null) {
+            nodoActual = nodoActual.izquierda;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean moverDerecha() {
+        if (nodoActual.derecha != null) {
+            nodoActual = nodoActual.derecha;
+            return true;
+        }
+        return false;
+    }
+
+    public String getNodoActualEscenario() {
+        return nodoActual.escenario;
+    }
+
+    public String getNodoActualEnigma() {
+        return nodoActual.enigma;
+    }
+    
+
+    
 
 }
