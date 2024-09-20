@@ -7,48 +7,76 @@ import java.util.Random;
 public class Acertijo {
 
     // Listas de acertijos categorizados por dificultad
-    
 //    private List<String> acertijosMedios;
 //    private List<String> acertijosDificiles;
-    private List<String> acertijosDisponibles;
-    private List<String> acertijosUsados;
+    private List<AcertijoPregunta> acertijosDisponibles;
+    private List<AcertijoPregunta> acertijosUsados;
     private String dificultadSeleccionada;
 
     // Constructor
     public Acertijo() {
-        acertijosDisponibles = new ArrayList<>();
 //        acertijosMedios = new ArrayList<>();
 //        acertijosDificiles = new ArrayList<>();
         acertijosDisponibles = new ArrayList<>();
         acertijosUsados = new ArrayList<>();
-
         agregarAcertijos();
 
+    }
+
+    private class AcertijoPregunta {
+
+        private String pregunta;   // Almacena la pregunta del acertijo
+        private String respuesta;  // Almacena la respuesta correcta del acertijo
+        private String[] opciones; // Opciones incorrectas para el acertijo
+        String respuestaCorrecta;
+        String[] respuestasIncorrectas;
+
+        public AcertijoPregunta(String pregunta, String respuestaCorrecta, String[] respuestasIncorrectas) {
+            this.pregunta = pregunta;
+            this.respuestaCorrecta = respuestaCorrecta;
+            this.respuestasIncorrectas = respuestasIncorrectas;
+            this.respuesta = respuesta;
+            this.opciones = opciones;
+        }
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    // Método para obtener la respuesta (si es necesario)
+    public String getRespuesta() {
+        return respuesta;
+    }
+
+    // Método para obtener las opciones de respuesta
+    public String[] getOpciones() {
+        return opciones;
     }
 
     private void agregarAcertijos() {
         // Agregar acertijos con dificultad
         //Acertijos Fáciles
-        acertijosDisponibles.add("¿Cuántas patas tiene una araña?");//Seis, creo
-        acertijosDisponibles.add("Mucho de eso te mata, pero nada tambien. Lo tenemos todos. ¿Qué es?");//Agua
-        acertijosDisponibles.add("Cuando cae del cielo, todo florece en el suelo. ¿Qué es?");//Lluvia
-        acertijosDisponibles.add("Verde es en primavera, marrón en otoño, se cae en invierno y renace en abril. ¿Qué es?");//Hoja
-        acertijosDisponibles.add("Sin ser ni humano ni animal, ilumina el bosque de foco en foco. ¿Qué es?");//Luciernaga
-        acertijosDisponibles.add("Vive en la copa de los árboles, salta de rama en rama y le encanta la banana. ¿Qué es?");//Mono
-        acertijosDisponibles.add("Flota sobre el agua en ríos tropicales, su piel es gruesa y sus dientes son afilados. ¿Qué es?");//Cocodrilo
-        acertijosDisponibles.add("Tiene caparazón, es lento y viaja por agua y tierra. ¿Qué es?");//Tortuga
-        acertijosDisponibles.add("¡Es un animal parlanchin!");//Loro
-        acertijosDisponibles.add("Es un animal que se camufla ante depredadores");//Camaleon
-        acertijosDisponibles.add("No tiene piernas, pero puede desplazarse habilmente");//Serpiente
-        acertijosDisponibles.add("Tiene una lengua pegajosa que atrapa inscetos");//Rana
-        acertijosDisponibles.add("De color verde y cola larga, se desliza entre las ramas y se alimenta de insectos y frutas. ¿Qué es?");//Iguana
-        acertijosDisponibles.add("Es una linda ave generalmente de color azul y amarillo");//Guacamaya
-        acertijosDisponibles.add("Es un insecto responsable por la generacion de miel");//Abeja
-        acertijosDisponibles.add("Flor bella de color magenta");//Orquidea
-        acertijosDisponibles.add("Esta flor sigue el trayecto de nuestra estrella");//Girasol
-        acertijosDisponibles.add("Es un felino ágil y fuerte, sus manchas lo ayudan a camuflarse entre los árboles ¿Qué es?");//Jaguar
-        acertijosDisponibles.add("Tiene alas hermosas y vuela entre flores");//Mariposa
-        acertijosDisponibles.add("Es una flor que solo se abre de noche");//Flor noctura o flor de cactus
+        acertijosDisponibles.add(new AcertijoPregunta("¿Cuántas patas tiene una araña?", "Ocho", new String[]{"Seis", "Siete"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Mucho de eso te mata, pero nada también. Lo tenemos todos. ¿Qué es?", "Agua", new String[]{"Comida", "Sol"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Cuando cae del cielo, todo florece en el suelo. ¿Qué es?", "Lluvia", new String[]{"Sol", "Nieve"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Verde es en primavera, marrón en otoño, se cae en invierno y renace en abril. ¿Qué es?", "Hoja", new String[]{"Hierba", "Flor"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Sin ser ni humano ni animal, ilumina el bosque de foco en foco. ¿Qué es?", "Luciérnaga", new String[]{"Lámpara", "Estrella"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Vive en la copa de los árboles, salta de rama en rama y le encanta la banana. ¿Qué es?", "Mono", new String[]{"Loro", "Perezoso"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Flota sobre el agua en ríos tropicales, su piel es gruesa y sus dientes son afilados. ¿Qué es?", "Cocodrilo", new String[]{"Hipopótamo", "Tiburón"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Tiene caparazón, es lento y viaja por agua y tierra. ¿Qué es?", "Tortuga", new String[]{"Cangrejo", "Erizo"}));
+        acertijosDisponibles.add(new AcertijoPregunta("¡Es un animal parlanchín!", "Loro", new String[]{"Mono", "Perro"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Es un animal que se camufla ante depredadores", "Camaleón", new String[]{"Serpiente", "Conejo"}));
+        acertijosDisponibles.add(new AcertijoPregunta("No tiene piernas, pero puede desplazarse hábilmente", "Serpiente", new String[]{"Anguila", "Gusano"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Tiene una lengua pegajosa que atrapa insectos", "Rana", new String[]{"Lagartija", "Salamandra"}));
+        acertijosDisponibles.add(new AcertijoPregunta("De color verde y cola larga, se desliza entre las ramas y se alimenta de insectos y frutas. ¿Qué es?", "Iguana", new String[]{"Serpiente", "Lagartija"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Es una linda ave generalmente de color azul y amarillo", "Guacamaya", new String[]{"Cacatúa", "Flamenco"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Es un insecto responsable por la generación de miel", "Abeja", new String[]{"Avispa", "Hormiga"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Flor bella de color magenta", "Orquídea", new String[]{"Girasol", "Rosa"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Esta flor sigue el trayecto de nuestra estrella", "Girasol", new String[]{"Rosa", "Tulipán"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Es un felino ágil y fuerte, sus manchas lo ayudan a camuflarse entre los árboles. ¿Qué es?", "Jaguar", new String[]{"Tigre", "Leopardo"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Tiene alas hermosas y vuela entre flores", "Mariposa", new String[]{"Libélula", "Mosca"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Es una flor que solo se abre de noche", "Flor nocturna o flor de cactus", new String[]{"Rosa", "Dalia"}));
 
         //Acertijos Medios
 //        acertijosMedios.add("¿Qué tiene cabeza, pero no cerebro?");// ???
@@ -103,28 +131,30 @@ public class Acertijo {
     }
 
     // Obtener un acertijo aleatorio según la dificultad
-    public String obtenerAcertijoAleatorio() {
+    public AcertijoPregunta obtenerAcertijoAleatorio() {
         if (acertijosDisponibles.isEmpty()) {
             System.out.println("Todos los acertijos ya han sido utilizados.");
             return null;
         }
 
-        System.out.println("Seleccionando un acertijo aleatorio de la lista de " + acertijosDisponibles.size() + " acertijos.");
-
-        // Selecciona un acertijo aleatorio
         Random random = new Random();
         int index = random.nextInt(acertijosDisponibles.size());
-        String acertijoSeleccionado = acertijosDisponibles.get(index);
+        AcertijoPregunta acertijoSeleccionado = acertijosDisponibles.get(index);
 
-        // Mueve el acertijo a la lista de usados y elimínalo de la lista disponible
         acertijosUsados.add(acertijoSeleccionado);
         acertijosDisponibles.remove(index);
-        
-        if (acertijosDisponibles.isEmpty()) {
-            System.out.println("Advertencia: ya no hay más acertijos disponibles.");
-        }
 
-        return acertijoSeleccionado;
+        if (!acertijosDisponibles.isEmpty()) {
+            int indiceAleatorio = (int) (Math.random() * acertijosDisponibles.size());
+            return acertijosDisponibles.get(indiceAleatorio);
+        }
+        return null;  // Si no hay acertijos disponibles, devuelve null
+
+//        if (acertijosDisponibles.isEmpty()) {
+//            System.out.println("Advertencia: ya no hay más acertijos disponibles.");
+//        }
+//
+//        return acertijoSeleccionado;
     }
 
     // Reiniciar los acertijos disponibles según la dificultad seleccionada
@@ -133,10 +163,7 @@ public class Acertijo {
         acertijosUsados.clear();
 
         // Rellenar acertijosDisponibles según la dificultad seleccionada
-         
-            acertijosDisponibles.addAll(acertijosDisponibles);
-        
-        
+        acertijosDisponibles.addAll(acertijosDisponibles);
 
         // Verificar que acertijosDisponibles no esté vacía
         if (acertijosDisponibles.isEmpty()) {
