@@ -12,6 +12,7 @@ public class Juego {
     private int respuestasIncorrectas;
     private int puntaje;
 
+
     // Constructor que acepta una instancia de Acertijo
     public Juego() {
         arbol = new Arbol();
@@ -131,14 +132,16 @@ public class Juego {
         return respuesta.contains("bro") || respuesta.contains("segundos") || respuesta.contains("aguja");
     }
 
-    // Método para mostrar los resultados finales
+     // Método para mostrar los resultados finales
     private void mostrarResultados() {
         System.out.println("Fin del juego.");
         System.out.println("Puntaje total: " + puntaje);
         System.out.println("Respuestas correctas: " + respuestasCorrectas);
         System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
+        JOptionPane.showMessageDialog(null, "Resultados Finales:\nPuntaje: " + puntaje +
+                "\nRespuestas Correctas: " + respuestasCorrectas +
+                "\nRespuestas Incorrectas: " + respuestasIncorrectas);
     }
-
     public void setDificultad(String dificultad) {
         acertijos.setDificultad(dificultad);
     }
