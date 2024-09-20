@@ -21,8 +21,13 @@ public class NivelGO extends javax.swing.JFrame {
     public NivelGO() {
         initComponents();
         juego = new Juego();
+        
         actualizarEscenario();
         juego.setDificultad("facil");
+        
+    }
+    private void iniciarJuego(){
+        juego.iniciar();
     }
 
     /**

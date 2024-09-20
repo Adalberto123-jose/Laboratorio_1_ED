@@ -39,7 +39,6 @@ public class Juego {
 
     // Método para comenzar el juego
     public void iniciar() {
-        Scanner sc = new Scanner(System.in);
 
         JOptionPane.showMessageDialog(null, "¡Bienvenido a la Aventura en el Bosque Misterioso!");
 
@@ -47,14 +46,17 @@ public class Juego {
             if (nodoActual.hojaLlegada) {
                 JOptionPane.showMessageDialog(null, "¡Felicidades! Has llegado a la Hoja de Llegada.");
                 mostrarResultados();
-                break;
+                break; // Terminar el juego cuando se llega a la hoja final
             }
 
+            // Mostrar escenario y acertijo
             JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
 
-            // Respuesta del usuario
+            // Solicitar respuesta del usuario
+            System.out.println("Llegó a la respuesta"); // Debugging
             String respuesta = JOptionPane.showInputDialog(null, "Tu respuesta:");
-            if (verificarRespuesta(respuesta.toLowerCase())) {
+
+            if (respuesta != null && verificarRespuesta(respuesta.toLowerCase())) {
                 JOptionPane.showMessageDialog(null, "Respuesta correcta!");
                 respuestasCorrectas++;
                 puntaje += 3;
@@ -63,12 +65,12 @@ public class Juego {
                 nodoActual.enigma = acertijos.obtenerAcertijoAleatorio();
                 respuestasIncorrectas++;
                 if (respuestasIncorrectas % 3 == 0) {
-                    puntaje -= 1;
+                    puntaje -= 1;  // Penalización por múltiples errores
                 }
-                continue;
+                continue;  // Volver a solicitar la respuesta con un nuevo acertijo
             }
 
-            // Verificar si el jugador llega a un nodo hoja que no es la Hoja de Llegada
+            // Verificar si el jugador está en un nodo sin salida
             if (!nodoActual.hojaLlegada && (nodoActual.izquierda == null && nodoActual.derecha == null)) {
                 JOptionPane.showMessageDialog(null, "No has llegado a la Hoja de Llegada. Sigue buscando.");
             }
@@ -77,32 +79,33 @@ public class Juego {
             JOptionPane.showMessageDialog(null, "Estos son los escenarios que has visitado hasta ahora:");
             arbol.recorrerArbol(nodoActual);
 
-            // Busca y muestra la Hoja de Llegada real
+            // Buscar y mostrar la Hoja de Llegada real
             Nodo hojaDeLlegada = arbol.buscarHojaDeLlegada(arbol.raiz);
             JOptionPane.showMessageDialog(null, "La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
-        }
 
-        // Navegar al siguiente nodo
-        String[] opciones = {"Izquierda", "Derecha", "Salir"};
-        int eleccion = JOptionPane.showOptionDialog(null, "¿A dónde quieres ir?", "Decisión",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+            // Navegar al siguiente nodo (Izquierda, Derecha, Salir)
+            String[] opciones = {"Izquierda", "Derecha", "Salir"};
+            int eleccion = JOptionPane.showOptionDialog(null, "¿A dónde quieres ir?", "Decisión",
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
 
-        if (eleccion == 2) { // Salir
-            mostrarResultados();
-            //aqui hay dique un break pero no se si si haga algo
-        } else if (eleccion == 0 && nodoActual.izquierda != null) {
-            nodoActual = nodoActual.izquierda;
-        } else if (eleccion == 1 && nodoActual.derecha != null) {
-            nodoActual = nodoActual.derecha;
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay camino en esa dirección.");
+            // Manejar la elección del jugador
+            if (eleccion == 2) {  // Salir
+                mostrarResultados();
+                break;  // Termina el ciclo y el juego
+            } else if (eleccion == 0 && nodoActual.izquierda != null) {
+                nodoActual = nodoActual.izquierda;
+            } else if (eleccion == 1 && nodoActual.derecha != null) {
+                nodoActual = nodoActual.derecha;
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay camino en esa dirección.");
+            }
         }
     }
 
 // Método para verificar la respuesta del usuario
     private boolean verificarRespuesta(String respuesta) {
         // Lógica simple para verificar respuestas (puede mejorarse)
-        return respuesta.contains("futuro") || respuesta.contains("segundos") || respuesta.contains("aguja");
+        return respuesta.contains("bro") || respuesta.contains("segundos") || respuesta.contains("aguja");
     }
 
     // Método para mostrar los resultados finales
@@ -140,8 +143,5 @@ public class Juego {
     public String getNodoActualEnigma() {
         return nodoActual.enigma;
     }
-    
-
-    
 
 }

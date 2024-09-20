@@ -7,6 +7,7 @@ public class Laboratorio_1_ED {
     public static void main(String[] args) {
         Inicio I = new Inicio();
         I.setVisible(true);
+        
     }
 
 }

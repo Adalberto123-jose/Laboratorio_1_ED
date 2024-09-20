@@ -132,18 +132,15 @@ public class Menu_Opciones extends javax.swing.JFrame {
     }//GEN-LAST:event_BtRegresarActionPerformed
 
     private void BtFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtFacilActionPerformed
-     acertijo.setDificultad("fácil");
-        JOptionPane.showMessageDialog(this, "Dificultad fácil seleccionada");
+     
     }//GEN-LAST:event_BtFacilActionPerformed
 
     private void BtMedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMedioActionPerformed
-     acertijo.setDificultad("medio");
-        JOptionPane.showMessageDialog(this, "Dificultad media seleccionada");  
+    
     }//GEN-LAST:event_BtMedioActionPerformed
 
     private void BtDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDificilActionPerformed
-        acertijo.setDificultad("dificil");
-        JOptionPane.showMessageDialog(this, "Dificultad difícil seleccionada");
+       
     }//GEN-LAST:event_BtDificilActionPerformed
 
     
