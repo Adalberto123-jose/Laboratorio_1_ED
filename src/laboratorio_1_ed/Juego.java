@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class Juego {
 
     private Arbol arbol;  // Instancia del árbol
-    private Nodo nodoActual;  // El nodo donde está el jugador
+    public Nodo nodoActual;  // El nodo donde está el jugador
     private Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
     private Acertijo.AcertijoPregunta acertijoActual;  // Guardamos el acertijo actual para verificar la respuesta
     public int respuestasCorrectas;
@@ -26,21 +26,21 @@ public class Juego {
     // Método para inicializar el juego con algunos nodos y acertijos
     public void inicializarJuego() {
         // Crear los nodos
-        Nodo nodo1 = arbol.insertarNodo("Bosque Encantado", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo2 = arbol.insertarNodo("Cueva Misteriosa", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo3 = arbol.insertarNodo("Lago Cristalino", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo4 = arbol.insertarNodo("Montaña Mística", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo5 = arbol.insertarNodo("Ruinas Antiguas", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo6 = arbol.insertarNodo("Cascada Brillante", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo7 = arbol.insertarNodo("Templo Secreto", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo8 = arbol.insertarNodo("Desierto Perdido", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo9 = arbol.insertarNodo("Cueva Oculta", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo10 = arbol.insertarNodo("Santuario Oscuro", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo11 = arbol.insertarNodo("Valle Escondido", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo12 = arbol.insertarNodo("Fortaleza Antigua", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo13 = arbol.insertarNodo("Jardín Místico", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo nodo14 = arbol.insertarNodo("Bosque Tenebroso", acertijos.obtenerAcertijoAleatorio().getPregunta(), false);
-        Nodo hojaDeLlegada = arbol.insertarNodo("Torre del Hechicero", acertijos.obtenerAcertijoAleatorio().getPregunta(), true);
+        Nodo nodo1 = arbol.insertarNodo("Bosque Encantado", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,1);
+        Nodo nodo2 = arbol.insertarNodo("Cueva Misteriosa", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,2);
+        Nodo nodo3 = arbol.insertarNodo("Lago Cristalino", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,3);
+        Nodo nodo4 = arbol.insertarNodo("Montaña Mística", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,4);
+        Nodo nodo5 = arbol.insertarNodo("Ruinas Antiguas", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,5);
+        Nodo nodo6 = arbol.insertarNodo("Cascada Brillante", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,6);
+        Nodo nodo7 = arbol.insertarNodo("Templo Secreto", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,7);
+        Nodo nodo8 = arbol.insertarNodo("Desierto Perdido", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,8);
+        Nodo nodo9 = arbol.insertarNodo("Cueva Oculta", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,9);
+        Nodo nodo10 = arbol.insertarNodo("Santuario Oscuro", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,10);
+        Nodo nodo11 = arbol.insertarNodo("Valle Escondido", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,11);
+        Nodo nodo12 = arbol.insertarNodo("Fortaleza Antigua", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,12);
+        Nodo nodo13 = arbol.insertarNodo("Jardín Místico", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,13);
+        Nodo nodo14 = arbol.insertarNodo("Bosque Tenebroso", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,14);
+        Nodo hojaDeLlegada = arbol.insertarNodo("Torre del Hechicero", acertijos.obtenerAcertijoAleatorio().getPregunta(), true,15);
 
         // Conectar los nodos
         nodo1.izquierda = nodo2;

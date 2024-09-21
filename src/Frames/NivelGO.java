@@ -48,6 +48,7 @@ public class NivelGO extends javax.swing.JFrame {
         BtIzquierda = new javax.swing.JButton();
         BtDerecha = new javax.swing.JButton();
         BtIrAlArbol = new javax.swing.JButton();
+        BtNodoPosicion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,6 +95,16 @@ public class NivelGO extends javax.swing.JFrame {
             }
         });
         jPanel1.add(BtIrAlArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+
+        BtNodoPosicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NodoPng.png"))); // NOI18N
+        BtNodoPosicion.setBorderPainted(false);
+        BtNodoPosicion.setContentAreaFilled(false);
+        BtNodoPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtNodoPosicionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtNodoPosicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 120, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WateryForest.gif"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -201,6 +212,10 @@ public class NivelGO extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtDerechaActionPerformed
 
+    private void BtNodoPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtNodoPosicionActionPerformed
+        JOptionPane.showMessageDialog(this, "Estás en el nodo: " + juego.nodoActual.id);
+    }//GEN-LAST:event_BtNodoPosicionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,6 +263,7 @@ public class NivelGO extends javax.swing.JFrame {
     private javax.swing.JButton BtDerecha;
     private javax.swing.JButton BtIrAlArbol;
     private javax.swing.JButton BtIzquierda;
+    private javax.swing.JButton BtNodoPosicion;
     private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

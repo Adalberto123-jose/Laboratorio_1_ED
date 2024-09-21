@@ -10,8 +10,8 @@ public class Arbol {
     }
 
     // Método para insertar un nuevo nodo en el árbol
-    public Nodo insertarNodo(String escenario, String enigma, boolean hojaLlegada) {
-        Nodo nuevoNodo = new Nodo(escenario, enigma, hojaLlegada);
+    public Nodo insertarNodo(String escenario, String enigma, boolean hojaLlegada, int id) {
+        Nodo nuevoNodo = new Nodo(escenario, enigma, hojaLlegada, id);
         if (raiz == null) {
             raiz = nuevoNodo;  // Si el árbol está vacío, este será el primer nodo
         } else {

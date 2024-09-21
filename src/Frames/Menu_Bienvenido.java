@@ -98,8 +98,7 @@ public class Menu_Bienvenido extends javax.swing.JFrame {
         this.setVisible(false);
         
         NivelGO nvgo = new NivelGO();
-        nvgo.setVisible(true);
-        
+        nvgo.setVisible(true);        
         
     }//GEN-LAST:event_BtGoActionPerformed
 
