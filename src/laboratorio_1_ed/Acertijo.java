@@ -19,17 +19,13 @@ public class Acertijo {
 
         private String pregunta;
         private String respuestaCorrecta;
-        private String[] opciones;
+      
 
         public AcertijoPregunta(String pregunta, String respuestaCorrecta, String[] respuestasIncorrectas) {
             this.pregunta = pregunta;
             this.respuestaCorrecta = respuestaCorrecta;
             // Combinar respuesta correcta con incorrectas
-            opciones = new String[respuestasIncorrectas.length + 1];
-            opciones[0] = respuestaCorrecta;
-            System.arraycopy(respuestasIncorrectas, 0, opciones, 1, respuestasIncorrectas.length);
-            // Mezclar las opciones (opcional)
-            mezclarOpciones();
+            
         }
 
         public String getPregunta() {
@@ -40,13 +36,9 @@ public class Acertijo {
             return respuestaCorrecta;
         }
 
-        public String[] getOpciones() {
-            return opciones;
-        }
+        
 
-        private void mezclarOpciones() {
-            // Aquí puedes implementar un algoritmo para mezclar las opciones
-        }
+        
     }
 
     private void agregarAcertijos() {
@@ -84,8 +76,8 @@ public class Acertijo {
         if (!acertijosDisponibles.isEmpty()) {
             int indiceAleatorio = new Random().nextInt(acertijosDisponibles.size());
             AcertijoPregunta acertijoSeleccionado = acertijosDisponibles.get(indiceAleatorio);
-            acertijosDisponibles.remove(indiceAleatorio);
-            acertijosUsados.add(acertijoSeleccionado);
+             acertijosUsados.add(acertijoSeleccionado);
+            acertijosDisponibles.remove(indiceAleatorio);           
             return acertijoSeleccionado;
         } else {
             System.out.println("No hay acertijos disponibles.");

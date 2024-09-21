@@ -21,12 +21,12 @@ public class NivelGO extends javax.swing.JFrame {
     public NivelGO() {
         initComponents();
         juego = new Juego();
-        
-        actualizarEscenario();
         juego.setDificultad("facil");
-        
+        actualizarEscenario();
+
     }
-    private void iniciarJuego(){
+
+    private void iniciarJuego() {
         juego.iniciar();
     }
 
@@ -98,11 +98,35 @@ public class NivelGO extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
     private void actualizarEscenario() {
-        String escenario = juego.getNodoActualEscenario(); // Obtener el escenario actual
-        String acertijo = juego.getNodoActualEnigma(); // Obtener el acertijo actual
-        JOptionPane.showMessageDialog(this, "Estás en: " + escenario + "\nAcertijo: " + acertijo);
+        if (juego.esHojaDeLlegada()) {
+            JOptionPane.showMessageDialog(this, "¡Felicidades! Has llegado a la Torre del Hechicero.");
+            mostrarResultados();
+        } else {
+            String escenario = juego.getNodoActualEscenario();
+            String acertijo = juego.getNodoActualEnigma();
+            JOptionPane.showMessageDialog(this, "Estás en: " + escenario + "\nAcertijo: " + acertijo);
+
+            // Llama a la función para solicitar respuesta
+            solicitarRespuesta();
+        }
     }
+    
+     private void mostrarResultados() {
+        // Aquí puedes mostrar los resultados finales
+        JOptionPane.showMessageDialog(this, "Fin del juego.");
+    }
+
+    private void solicitarRespuesta() {
+        String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
+        if (respuesta != null && juego.verificarRespuesta(respuesta)) {
+            JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Intenta con otro acertijo.");
+        }
+    }
+
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
         this.setVisible(false);
         Menu_Bienvenido bn = new Menu_Bienvenido();
@@ -137,14 +161,23 @@ public class NivelGO extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No hay camino a la derecha.");
         }
-    
-    // TODO add your handling code here:
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_BtDerechaActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    private void verificarRespuesta() {
+        String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
+        if (respuesta != null && juego.verificarRespuesta(respuesta)) {
+            JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Intenta con otro acertijo.");
+        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -156,27 +189,23 @@ public static void main(String args[]) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class  
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

@@ -8,10 +8,10 @@ public class Juego {
     private Arbol arbol;  // Instancia del árbol
     private Nodo nodoActual;  // El nodo donde está el jugador
     private Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
+    private Acertijo.AcertijoPregunta acertijoActual;  // Guardamos el acertijo actual para verificar la respuesta
     private int respuestasCorrectas;
     private int respuestasIncorrectas;
     private int puntaje;
-
 
     // Constructor que acepta una instancia de Acertijo
     public Juego() {
@@ -59,6 +59,7 @@ public class Juego {
         nodo7.derecha = hojaDeLlegada;
 
         nodoActual = arbol.raiz;  // El jugador comienza en la raíz del árbol
+        acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Guardamos el primer acertijo
     }
 
     // Método para comenzar el juego
@@ -66,89 +67,42 @@ public class Juego {
 
         JOptionPane.showMessageDialog(null, "¡Bienvenido a la Aventura en el Bosque Misterioso!");
 
-        while (true) {
-            if (nodoActual.hojaLlegada) {
-                JOptionPane.showMessageDialog(null, "¡Felicidades! Has llegado a la Hoja de Llegada.");
-                mostrarResultados();
-                break; // Terminar el juego cuando se llega a la hoja final
-            }
+        actualizarPregunta();
 
-            // Mostrar escenario y acertijo
-            JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
-
-            // Solicitar respuesta del usuario
-            System.out.println("Llegó a la respuesta"); // Debugging
-            String respuesta = JOptionPane.showInputDialog(null, "Tu respuesta:");
-            String respuestaCorrecta = acertijos.obtenerAcertijoAleatorio().getRespuesta();
-
-            if (respuesta != null && respuesta.equalsIgnoreCase(respuestaCorrecta)) {
-                JOptionPane.showMessageDialog(null, "Respuesta correcta!");
-                respuestasCorrectas++;
-                puntaje += 3;
-            } else {
-                JOptionPane.showMessageDialog(null, "Respuesta incorrecta. Intenta con otro acertijo.");
-                respuestasIncorrectas++;
-                if (respuestasIncorrectas % 3 == 0) {
-                    puntaje -= 1;  // Penalización por múltiples errores
-                }
-                continue;  // Volver a solicitar la respuesta con un nuevo acertijo
-            }
-
-            // Verificar si el jugador está en un nodo sin salida
-            if (!nodoActual.hojaLlegada && (nodoActual.izquierda == null && nodoActual.derecha == null)) {
-                JOptionPane.showMessageDialog(null, "No has llegado a la Hoja de Llegada. Sigue buscando.");
-            }
-
-            // Muestra los nodos hasta el punto actual
-            JOptionPane.showMessageDialog(null, "Estos son los escenarios que has visitado hasta ahora:");
-            arbol.recorrerArbol(nodoActual);
-
-            // Buscar y mostrar la Hoja de Llegada real
-            Nodo hojaDeLlegada = arbol.buscarHojaDeLlegada(arbol.raiz);
-            JOptionPane.showMessageDialog(null, "La Hoja de Llegada está en: " + hojaDeLlegada.escenario);
-
-            // Navegar al siguiente nodo (Izquierda, Derecha, Salir)
-            String[] opciones = {"Izquierda", "Derecha", "Salir"};
-            int eleccion = JOptionPane.showOptionDialog(null, "¿A dónde quieres ir?", "Decisión",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
-
-            // Manejar la elección del jugador
-            if (eleccion == 2) {  // Salir
-                mostrarResultados();
-                break;  // Termina el ciclo y el juego
-            } else if (eleccion == 0 && nodoActual.izquierda != null) {
-                nodoActual = nodoActual.izquierda;
-            } else if (eleccion == 1 && nodoActual.derecha != null) {
-                nodoActual = nodoActual.derecha;
-            } else {
-                JOptionPane.showMessageDialog(null, "No hay camino en esa dirección.");
-            }
-        }
     }
 
 // Método para verificar la respuesta del usuario
-    private boolean verificarRespuesta(String respuesta) {
-        // Lógica simple para verificar respuestas (puede mejorarse)
-        return respuesta.contains("bro") || respuesta.contains("segundos") || respuesta.contains("aguja");
+    public boolean verificarRespuesta(String respuesta) {
+        return respuesta.equalsIgnoreCase(acertijoActual.getRespuesta());
     }
 
-     // Método para mostrar los resultados finales
+    public void actualizarPregunta() {
+        JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
+    }
+
+    // Método para mostrar los resultados finales
     private void mostrarResultados() {
         System.out.println("Fin del juego.");
         System.out.println("Puntaje total: " + puntaje);
         System.out.println("Respuestas correctas: " + respuestasCorrectas);
         System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
-        JOptionPane.showMessageDialog(null, "Resultados Finales:\nPuntaje: " + puntaje +
-                "\nRespuestas Correctas: " + respuestasCorrectas +
-                "\nRespuestas Incorrectas: " + respuestasIncorrectas);
+        JOptionPane.showMessageDialog(null, "Resultados Finales:\nPuntaje: " + puntaje
+                + "\nRespuestas Correctas: " + respuestasCorrectas
+                + "\nRespuestas Incorrectas: " + respuestasIncorrectas);
     }
+
     public void setDificultad(String dificultad) {
         acertijos.setDificultad(dificultad);
+    }
+
+    public boolean esHojaDeLlegada() {
+        return nodoActual.hojaLlegada;
     }
 
     public boolean moverIzquierda() {
         if (nodoActual.izquierda != null) {
             nodoActual = nodoActual.izquierda;
+            acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Nuevo acertijo para el nuevo nodo
             return true;
         }
         return false;
@@ -157,6 +111,7 @@ public class Juego {
     public boolean moverDerecha() {
         if (nodoActual.derecha != null) {
             nodoActual = nodoActual.derecha;
+            acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Nuevo acertijo para el nuevo nodo
             return true;
         }
         return false;
@@ -167,6 +122,10 @@ public class Juego {
     }
 
     public String getNodoActualEnigma() {
+        return acertijoActual.getPregunta();  // Devolvemos el acertijo actual
+    }
+
+    public String obtenerPreguntaActual() {
         return nodoActual.enigma;
     }
 
