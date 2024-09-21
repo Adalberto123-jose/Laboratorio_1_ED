@@ -6,6 +6,8 @@ package Frames;
 
 import javax.swing.JOptionPane;
 import laboratorio_1_ed.Juego;
+import laboratorio_1_ed.Nodo;
+
 
 /**
  *
@@ -23,12 +25,13 @@ public class NivelGO extends javax.swing.JFrame {
         juego = new Juego();
         juego.setDificultad("facil");
         actualizarEscenario();
+        
 
     }
 
-    private void iniciarJuego() {
-        juego.iniciar();
-    }
+//    private void iniciarJuego() {
+//        juego.iniciar();
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -106,23 +109,42 @@ public class NivelGO extends javax.swing.JFrame {
         } else {
             String escenario = juego.getNodoActualEscenario();
             String acertijo = juego.getNodoActualEnigma();
+            
+            System.out.println("Se ejecuta el de nivelGO"); //Debug
             JOptionPane.showMessageDialog(this, "Estás en: " + escenario + "\nAcertijo: " + acertijo);
 
             // Llama a la función para solicitar respuesta
             solicitarRespuesta();
         }
     }
-    
-     private void mostrarResultados() {
-        // Aquí puedes mostrar los resultados finales
-        JOptionPane.showMessageDialog(this, "Fin del juego.");
+
+    private void mostrarResultados() {
+        // Si no es la hoja de llegada, mostrar el lugar donde está
+        if (!juego.esHojaDeLlegada()) {
+            Nodo hojaDeLlegada = juego.buscarHojaDeLlegada();
+            JOptionPane.showMessageDialog(this, "No has llegado a la Torre del Hechicero.\nLa Torre del Hechicero está en: " + hojaDeLlegada.escenario);
+        } else {
+            JOptionPane.showMessageDialog(this, "Fin del juego.");
+        }
     }
 
     private void solicitarRespuesta() {
         String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
-        
+
+        // Verificar si el usuario canceló (respuesta == null)
+        if (respuesta == null) {
+            // El usuario canceló, cerrar el juego
+            JOptionPane.showMessageDialog(this, "Has cancelado el juego.");
+
+            Menu_Bienvenido menu = new Menu_Bienvenido();
+            menu.setVisible(true);
+            
+            this.dispose();  // Cierra la ventana actual (NivelGO)
+            return;  // Terminar el método para no continuar el flujo
+        }
+
         // Verificamos la respuesta
-        if (respuesta != null && juego.verificarRespuesta(respuesta)) {
+        if (juego.verificarRespuesta(respuesta)) {
             JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
             // Ahora el jugador puede moverse
         } else {
@@ -170,15 +192,6 @@ public class NivelGO extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_BtDerechaActionPerformed
-
-    private void verificarRespuesta() {
-        String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
-        if (respuesta != null && juego.verificarRespuesta(respuesta)) {
-            JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
-        } else {
-            JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Intenta con otro acertijo.");
-        }
-    }
 
     /**
      * @param args the command line arguments

@@ -62,7 +62,7 @@ public class Juego {
         acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Guardamos el primer acertijo
     }
 
-    // Método para comenzar el juego
+    
     public void iniciar() {
 
         JOptionPane.showMessageDialog(null, "¡Bienvenido a la Aventura en el Bosque Misterioso!");
@@ -77,6 +77,8 @@ public class Juego {
     }
 
     public void actualizarPregunta() {
+        
+        System.out.println("Se ejecuta el del juego");
         JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
     }
 
@@ -131,6 +133,10 @@ public class Juego {
     
     public void generarNuevoAcertijo() {
         acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Se obtiene un nuevo acertijo para el mismo nodo
+    }
+    
+    public Nodo buscarHojaDeLlegada() {
+        return arbol.buscarHojaDeLlegada(arbol.raiz);  // Buscar el nodo de la Hoja de Llegada
     }
 
 }
