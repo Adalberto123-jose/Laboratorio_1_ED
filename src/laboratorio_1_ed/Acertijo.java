@@ -62,7 +62,7 @@ public class Acertijo {
             acertijosDisponibles.add(new AcertijoPregunta("Esta flor sigue el trayecto de nuestra estrella", "Girasol", new String[]{"Rosa", "Tulipán"}));
             acertijosDisponibles.add(new AcertijoPregunta("Es un felino ágil y fuerte, sus manchas lo ayudan a camuflarse entre los árboles. ¿Qué es?", "Jaguar", new String[]{"Tigre", "Leopardo"}));
             acertijosDisponibles.add(new AcertijoPregunta("Tiene alas hermosas y vuela entre flores", "Mariposa", new String[]{"Libélula", "Mosca"}));
-            acertijosDisponibles.add(new AcertijoPregunta("Es una flor que solo se abre de noche", "Flor nocturna o flor de cactus", new String[]{"Rosa", "Dalia"}));
+            acertijosDisponibles.add(new AcertijoPregunta("Es una flor que solo se abre de noche", "Flor nocturna", new String[]{"Rosa", "Dalia"}));
 
     }
 

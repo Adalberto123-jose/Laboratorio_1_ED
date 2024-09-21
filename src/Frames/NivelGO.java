@@ -26,6 +26,7 @@ public class NivelGO extends javax.swing.JFrame {
         juego.setDificultad("facil");
         actualizarEscenario();
         
+        
 
     }
 
@@ -105,7 +106,7 @@ public class NivelGO extends javax.swing.JFrame {
     private void actualizarEscenario() {
         if (juego.esHojaDeLlegada()) {
             JOptionPane.showMessageDialog(this, "¡Felicidades! Has llegado a la Torre del Hechicero.");
-            mostrarResultados();
+            juego.mostrarResultados();
         } else {
             String escenario = juego.getNodoActualEscenario();
             String acertijo = juego.getNodoActualEnigma();
@@ -118,13 +119,14 @@ public class NivelGO extends javax.swing.JFrame {
         }
     }
 
-    private void mostrarResultados() {
+    public void verificacionHojaDeLlegada() {
         // Si no es la hoja de llegada, mostrar el lugar donde está
         if (!juego.esHojaDeLlegada()) {
             Nodo hojaDeLlegada = juego.buscarHojaDeLlegada();
             JOptionPane.showMessageDialog(this, "No has llegado a la Torre del Hechicero.\nLa Torre del Hechicero está en: " + hojaDeLlegada.escenario);
         } else {
             JOptionPane.showMessageDialog(this, "Fin del juego.");
+            juego.mostrarResultados();
         }
     }
 
@@ -146,9 +148,15 @@ public class NivelGO extends javax.swing.JFrame {
         // Verificamos la respuesta
         if (juego.verificarRespuesta(respuesta)) {
             JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
+            juego.respuestasCorrectas++;
+            juego.puntaje += 3;
             // Ahora el jugador puede moverse
         } else {
             JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Generando otro acertijo.");
+            juego.respuestasIncorrectas++;
+            if (juego.respuestasIncorrectas % 3 == 0) {
+                juego.puntaje -= 1;  // Penalización por múltiples errores
+            }
             // Generar un nuevo acertijo en el mismo nodo
             juego.generarNuevoAcertijo();
             actualizarEscenario();  // Volvemos a mostrar el escenario con el nuevo acertijo

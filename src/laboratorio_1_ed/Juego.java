@@ -9,9 +9,9 @@ public class Juego {
     private Nodo nodoActual;  // El nodo donde está el jugador
     private Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
     private Acertijo.AcertijoPregunta acertijoActual;  // Guardamos el acertijo actual para verificar la respuesta
-    private int respuestasCorrectas;
-    private int respuestasIncorrectas;
-    private int puntaje;
+    public int respuestasCorrectas;
+    public int respuestasIncorrectas;
+    public int puntaje;
 
     // Constructor que acepta una instancia de Acertijo
     public Juego() {
@@ -62,7 +62,6 @@ public class Juego {
         acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Guardamos el primer acertijo
     }
 
-    
     public void iniciar() {
 
         JOptionPane.showMessageDialog(null, "¡Bienvenido a la Aventura en el Bosque Misterioso!");
@@ -77,17 +76,13 @@ public class Juego {
     }
 
     public void actualizarPregunta() {
-        
+
         System.out.println("Se ejecuta el del juego");
         JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
     }
 
     // Método para mostrar los resultados finales
-    private void mostrarResultados() {
-        System.out.println("Fin del juego.");
-        System.out.println("Puntaje total: " + puntaje);
-        System.out.println("Respuestas correctas: " + respuestasCorrectas);
-        System.out.println("Respuestas incorrectas: " + respuestasIncorrectas);
+    public void mostrarResultados() {
         JOptionPane.showMessageDialog(null, "Resultados Finales:\nPuntaje: " + puntaje
                 + "\nRespuestas Correctas: " + respuestasCorrectas
                 + "\nRespuestas Incorrectas: " + respuestasIncorrectas);
@@ -130,11 +125,11 @@ public class Juego {
     public String obtenerPreguntaActual() {
         return nodoActual.enigma;
     }
-    
+
     public void generarNuevoAcertijo() {
         acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Se obtiene un nuevo acertijo para el mismo nodo
     }
-    
+
     public Nodo buscarHojaDeLlegada() {
         return arbol.buscarHojaDeLlegada(arbol.raiz);  // Buscar el nodo de la Hoja de Llegada
     }
