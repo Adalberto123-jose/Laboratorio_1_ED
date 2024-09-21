@@ -128,5 +128,9 @@ public class Juego {
     public String obtenerPreguntaActual() {
         return nodoActual.enigma;
     }
+    
+    public void generarNuevoAcertijo() {
+        acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Se obtiene un nuevo acertijo para el mismo nodo
+    }
 
 }

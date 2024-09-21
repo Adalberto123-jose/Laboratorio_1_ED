@@ -120,10 +120,16 @@ public class NivelGO extends javax.swing.JFrame {
 
     private void solicitarRespuesta() {
         String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
+        
+        // Verificamos la respuesta
         if (respuesta != null && juego.verificarRespuesta(respuesta)) {
             JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
+            // Ahora el jugador puede moverse
         } else {
-            JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Intenta con otro acertijo.");
+            JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Generando otro acertijo.");
+            // Generar un nuevo acertijo en el mismo nodo
+            juego.generarNuevoAcertijo();
+            actualizarEscenario();  // Volvemos a mostrar el escenario con el nuevo acertijo
         }
     }
 
