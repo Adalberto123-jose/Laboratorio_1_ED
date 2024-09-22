@@ -4,17 +4,33 @@
  */
 package Frames;
 
+import javax.swing.JOptionPane;
+import laboratorio_1_ed.Juego;
+import laboratorio_1_ed.Nodo;
+
 /**
  *
  * @author HP
  */
 public class NivelGO extends javax.swing.JFrame {
 
+    private Juego juego;
+
     /**
      * Creates new form NivelGO
      */
     public NivelGO() {
         initComponents();
+        juego = new Juego();
+        juego.setDificultad("facil");
+
+        this.setVisible(true);  // Mostrar el JFrame primero
+
+    }
+
+    public void iniciarJuego() {
+        // Una vez visible, actualizamos el escenario
+        actualizarEscenario();
     }
 
     /**
@@ -31,6 +47,7 @@ public class NivelGO extends javax.swing.JFrame {
         BtIzquierda = new javax.swing.JButton();
         BtDerecha = new javax.swing.JButton();
         BtIrAlArbol = new javax.swing.JButton();
+        BtNodoPosicion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,7 +93,17 @@ public class NivelGO extends javax.swing.JFrame {
                 BtIrAlArbolActionPerformed(evt);
             }
         });
-        jPanel1.add(BtIrAlArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
+        jPanel1.add(BtIrAlArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+
+        BtNodoPosicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NodoPng.png"))); // NOI18N
+        BtNodoPosicion.setBorderPainted(false);
+        BtNodoPosicion.setContentAreaFilled(false);
+        BtNodoPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtNodoPosicionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtNodoPosicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 120, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/WateryForest.gif"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -85,6 +112,66 @@ public class NivelGO extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public void actualizarEscenario() {
+        if (juego.esHojaDeLlegada()) {
+            JOptionPane.showMessageDialog(this, "¡Felicidades! Has llegado a la Torre del Hechicero.");
+            juego.mostrarResultados();
+        } else {
+            String escenario = juego.getNodoActualEscenario();
+            String acertijo = juego.getNodoActualEnigma();
+
+            System.out.println("Se ejecuta el de nivelGO"); //Debug
+            JOptionPane.showMessageDialog(this, "Estás en: " + escenario + "\nAcertijo: " + acertijo);
+
+            // Llama a la función para solicitar respuesta
+            solicitarRespuesta();
+        }
+    }
+
+    public void verificacionHojaDeLlegada() {
+        // Si no es la hoja de llegada, mostrar el lugar donde está
+        if (!juego.esHojaDeLlegada()) {
+            Nodo hojaDeLlegada = juego.buscarHojaDeLlegada();
+            JOptionPane.showMessageDialog(this, "No has llegado a la Torre del Hechicero.\nLa Torre del Hechicero está en: " + hojaDeLlegada.escenario);
+        } else {
+            JOptionPane.showMessageDialog(this, "Fin del juego.");
+            juego.mostrarResultados();
+        }
+    }
+
+    public void solicitarRespuesta() {
+        String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
+
+        // Verificar si el usuario canceló (respuesta == null)
+        if (respuesta == null) {
+            // El usuario canceló, cerrar el juego
+            JOptionPane.showMessageDialog(this, "Has cancelado el juego.");
+
+            Menu_Bienvenido menu = new Menu_Bienvenido();
+            menu.setVisible(true);
+
+            this.dispose();  // Cierra la ventana actual (NivelGO)
+            return;  // Terminar el método para no continuar el flujo
+        }
+
+        // Verificamos la respuesta
+        if (juego.verificarRespuesta(respuesta)) {
+            JOptionPane.showMessageDialog(this, "¡Respuesta correcta!");
+            juego.respuestasCorrectas++;
+            juego.puntaje += 3;
+            // Ahora el jugador puede moverse
+        } else {
+            JOptionPane.showMessageDialog(this, "Respuesta incorrecta. Generando otro acertijo.");
+            juego.respuestasIncorrectas++;
+            if (juego.respuestasIncorrectas % 3 == 0) {
+                juego.puntaje -= 1;  // Penalización por múltiples errores
+            }
+            // Generar un nuevo acertijo en el mismo nodo
+            juego.generarNuevoAcertijo();
+            actualizarEscenario();  // Volvemos a mostrar el escenario con el nuevo acertijo
+        }
+    }
 
     private void BtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtRegresarActionPerformed
         this.setVisible(false);
@@ -96,19 +183,37 @@ public class NivelGO extends javax.swing.JFrame {
 
     private void BtIrAlArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIrAlArbolActionPerformed
         this.setVisible(false);
-        
-        ArbolFrame af = new ArbolFrame();
+        ArbolFrame af = new ArbolFrame(this);
         af.setVisible(true);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_BtIrAlArbolActionPerformed
 
     private void BtIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIzquierdaActionPerformed
+        boolean seMovio = juego.moverIzquierda();
+        if (seMovio) {
+            actualizarEscenario(); // Si se movió, actualizamos el escenario
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay camino a la izquierda.");
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_BtIzquierdaActionPerformed
 
     private void BtDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDerechaActionPerformed
+        boolean seMovio = juego.moverDerecha();
+        if (seMovio) {
+            actualizarEscenario(); // Si se movió, actualizamos el escenario
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay camino a la derecha.");
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_BtDerechaActionPerformed
+
+    private void BtNodoPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtNodoPosicionActionPerformed
+        JOptionPane.showMessageDialog(this, "Estás en el nodo: " + juego.nodoActual.id);
+    }//GEN-LAST:event_BtNodoPosicionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,16 +229,24 @@ public class NivelGO extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NivelGO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NivelGO.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -149,6 +262,7 @@ public class NivelGO extends javax.swing.JFrame {
     private javax.swing.JButton BtDerecha;
     private javax.swing.JButton BtIrAlArbol;
     private javax.swing.JButton BtIzquierda;
+    private javax.swing.JButton BtNodoPosicion;
     private javax.swing.JButton BtRegresar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

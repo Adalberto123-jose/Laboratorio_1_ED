@@ -10,30 +10,29 @@ public class Arbol {
     }
 
     // Método para insertar un nuevo nodo en el árbol
-    public Nodo insertarNodo(String escenario, String enigma, boolean hojaLlegada) {
-        Nodo nuevoNodo = new Nodo(escenario, enigma, hojaLlegada);
+    public Nodo insertarNodo(String escenario, String enigma, boolean hojaLlegada, int id) {
+        Nodo nuevoNodo = new Nodo(escenario, enigma, hojaLlegada, id);
         if (raiz == null) {
             raiz = nuevoNodo;  // Si el árbol está vacío, este será el primer nodo
         } else {
             // Insertar el nuevo nodo siguiendo la lógica de ABB
             Nodo actual = raiz;
-            Nodo padre = null;
+            
 
             while (true) {
-                padre = actual;
                 if (nuevoNodo.escenario.compareTo(actual.escenario) < 0) {
-                    // El escenario del nuevo nodo es menor, se va al subárbol izquierdo
-                    actual = actual.izquierda;
-                    if (actual == null) {
-                        padre.izquierda = nuevoNodo;
+                    if (actual.izquierda == null) {
+                        actual.izquierda = nuevoNodo;
                         break;
+                    } else {
+                        actual = actual.izquierda;
                     }
                 } else {
-                    // El escenario del nuevo nodo es mayor o igual, se va al subárbol derecho
-                    actual = actual.derecha;
-                    if (actual == null) {
-                        padre.derecha = nuevoNodo;
+                    if (actual.derecha == null) {
+                        actual.derecha = nuevoNodo;
                         break;
+                    } else {
+                        actual = actual.derecha;
                     }
                 }
             }
@@ -93,7 +92,7 @@ public class Arbol {
         return raiz;
     }
 
-    private Nodo obtenerNodoMinimo(Nodo nodo) {
+    public Nodo obtenerNodoMinimo(Nodo nodo) {
         while (nodo.izquierda != null) {
             nodo = nodo.izquierda;
         }

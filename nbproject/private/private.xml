@@ -3,22 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/Frames/Menu_Opciones.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/Frames/Menu_Bienvenido.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/laboratorio_1_ed/Nodo.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/laboratorio_1_ed/Juego.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/laboratorio_1_ed/Laboratorio_1_ED.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/Frames/Inicio.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/laboratorio_1_ed/Acertijo.java</file>
-            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED/src/Frames/Musica_Op.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/Inicio.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/Menu_Bienvenido.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/ArbolFrame.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/NivelGO.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Imagenes/GoBackButton.png</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/laboratorio_1_ed/Laboratorio_1_ED.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/laboratorio_1_ed/Arbol.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/laboratorio_1_ed/Juego.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/Musica_Op.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/Menu_Opciones.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Imagenes/WateryForest.gif</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/Frames/Information.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/laboratorio_1_ed/Acertijo.java</file>
+            <file>file:/C:/Users/LENOVO/Documents/NetBeansProjects/Laboratorio_1_ED-main/Laboratorio_1_ED-main/src/laboratorio_1_ed/Nodo.java</file>
         </group>
         <group name="Java stuff">
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/Menu_Opciones.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/Menu_Bienvenido.java</file>
+            <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/laboratorio_1_ed/Laboratorio_1_ED.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/laboratorio_1_ed/Arbol.java</file>
-            <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/Nivel.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/Inicio.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/Musica_Op.java</file>
+            <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/NivelGO.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/laboratorio_1_ed/Juego.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/laboratorio_1_ed/Acertijo.java</file>
             <file>file:/D:/Java%20stuff/Cuarto%20semestre/Laboratorio_1_ED/src/Frames/Information.java</file>
