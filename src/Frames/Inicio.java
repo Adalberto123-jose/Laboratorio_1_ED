@@ -56,6 +56,7 @@ public class Inicio extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -177,7 +178,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BtInformationActionPerformed
 
     private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
-        System.exit(WIDTH);
+        
+        System.exit(0);
 
     }//GEN-LAST:event_BtSalirActionPerformed
 
