@@ -29,7 +29,7 @@ public class Inicio extends javax.swing.JFrame {
         BtInformation.setPressedIcon(setIconoPresionado("/imagenes/InfoButton.png", Boton_Play, 10, 10));
         BtOpciones.setPressedIcon(setIconoPresionado("/imagenes/ConfigButton.png", Boton_Play, 10, 10));
         BtMusica.setPressedIcon(setIconoPresionado("/imagenes/MusicButton.png", Boton_Play, 10, 10));
-        BtSalir.setPressedIcon(setIconoPresionado("/imagenes/ExitButton3.png", Boton_Play, 2, 2));
+        
         
     }
 

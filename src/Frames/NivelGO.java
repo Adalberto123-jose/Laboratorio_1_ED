@@ -116,7 +116,7 @@ public class NivelGO extends javax.swing.JFrame {
     public void actualizarEscenario() {
         if (juego.esHojaDeLlegada()) {
             JOptionPane.showMessageDialog(this, "¡Felicidades! Has llegado a la Torre del Hechicero.");
-            juego.mostrarResultados();
+            verificacionHojaDeLlegada();
         } else {
             String escenario = juego.getNodoActualEscenario();
             String acertijo = juego.getNodoActualEnigma();
@@ -132,8 +132,9 @@ public class NivelGO extends javax.swing.JFrame {
     public void verificacionHojaDeLlegada() {
         // Si no es la hoja de llegada, mostrar el lugar donde está
         if (!juego.esHojaDeLlegada()) {
-            Nodo hojaDeLlegada = juego.buscarHojaDeLlegada();
-            JOptionPane.showMessageDialog(this, "No has llegado a la Torre del Hechicero.\nLa Torre del Hechicero está en: " + hojaDeLlegada.escenario);
+            
+            JOptionPane.showMessageDialog(this, "No has llegado a la Torre del Hechicero.\nLa Torre del Hechicero está en: Nodo 15 ");
+            juego.mostrarResultados();
         } else {
             JOptionPane.showMessageDialog(this, "Fin del juego.");
             juego.mostrarResultados();
@@ -194,7 +195,9 @@ public class NivelGO extends javax.swing.JFrame {
         if (seMovio) {
             actualizarEscenario(); // Si se movió, actualizamos el escenario
         } else {
+            
             JOptionPane.showMessageDialog(this, "No hay camino a la izquierda.");
+            verificacionHojaDeLlegada();
         }
 
         // TODO add your handling code here:
@@ -206,6 +209,7 @@ public class NivelGO extends javax.swing.JFrame {
             actualizarEscenario(); // Si se movió, actualizamos el escenario
         } else {
             JOptionPane.showMessageDialog(this, "No hay camino a la derecha.");
+            verificacionHojaDeLlegada();
         }
 
         // TODO add your handling code here:

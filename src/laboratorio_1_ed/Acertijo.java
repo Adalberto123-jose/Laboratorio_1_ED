@@ -55,7 +55,7 @@ public class Acertijo {
         acertijosDisponibles.add(new AcertijoPregunta("De color verde y cola larga, se desliza entre las ramas y se alimenta de insectos y frutas. ¿Qué es?", "Iguana", new String[]{"Serpiente", "Lagartija"}));
         acertijosDisponibles.add(new AcertijoPregunta("Es una linda ave generalmente de color azul y amarillo", "Guacamaya", new String[]{"Cacatúa", "Flamenco"}));
         acertijosDisponibles.add(new AcertijoPregunta("Es un insecto responsable por la generación de miel", "Abeja", new String[]{"Avispa", "Hormiga"}));
-        acertijosDisponibles.add(new AcertijoPregunta("Flor bella de color magenta", "Orquídea", new String[]{"Girasol", "Rosa"}));
+        acertijosDisponibles.add(new AcertijoPregunta("Flor bella de color magenta", "Orquidea", new String[]{"Girasol", "Rosa"}));
         acertijosDisponibles.add(new AcertijoPregunta("Esta flor sigue el trayecto de nuestra estrella", "Girasol", new String[]{"Rosa", "Tulipán"}));
         acertijosDisponibles.add(new AcertijoPregunta("Es un felino ágil y fuerte, sus manchas lo ayudan a camuflarse entre los árboles. ¿Qué es?", "Jaguar", new String[]{"Tigre", "Leopardo"}));
         acertijosDisponibles.add(new AcertijoPregunta("Tiene alas hermosas y vuela entre flores", "Mariposa", new String[]{"Libélula", "Mosca"}));

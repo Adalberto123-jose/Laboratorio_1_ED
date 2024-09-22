@@ -132,15 +132,15 @@ public class Menu_Opciones extends javax.swing.JFrame {
     }//GEN-LAST:event_BtRegresarActionPerformed
 
     private void BtFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtFacilActionPerformed
-     
+      JOptionPane.showMessageDialog(null, "Dificultad facil seleccionada!");
     }//GEN-LAST:event_BtFacilActionPerformed
 
     private void BtMedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtMedioActionPerformed
-    
+        JOptionPane.showMessageDialog(null, "Esta opcion no esta disponible aun!");
     }//GEN-LAST:event_BtMedioActionPerformed
 
     private void BtDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtDificilActionPerformed
-       
+        JOptionPane.showMessageDialog(null, "Esta opcion no esta disponible aun!");
     }//GEN-LAST:event_BtDificilActionPerformed
 
     
