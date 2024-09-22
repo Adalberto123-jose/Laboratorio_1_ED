@@ -92,7 +92,7 @@ public class Arbol {
         return raiz;
     }
 
-    private Nodo obtenerNodoMinimo(Nodo nodo) {
+    public Nodo obtenerNodoMinimo(Nodo nodo) {
         while (nodo.izquierda != null) {
             nodo = nodo.izquierda;
         }

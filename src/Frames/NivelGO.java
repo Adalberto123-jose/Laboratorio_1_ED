@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 import laboratorio_1_ed.Juego;
 import laboratorio_1_ed.Nodo;
 
-
 /**
  *
  * @author HP
@@ -24,15 +23,15 @@ public class NivelGO extends javax.swing.JFrame {
         initComponents();
         juego = new Juego();
         juego.setDificultad("facil");
-        actualizarEscenario();
-        
-        
+
+        this.setVisible(true);  // Mostrar el JFrame primero
 
     }
 
-//    private void iniciarJuego() {
-//        juego.iniciar();
-//    }
+    public void iniciarJuego() {
+        // Una vez visible, actualizamos el escenario
+        actualizarEscenario();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,14 +113,14 @@ public class NivelGO extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void actualizarEscenario() {
+    public void actualizarEscenario() {
         if (juego.esHojaDeLlegada()) {
             JOptionPane.showMessageDialog(this, "¡Felicidades! Has llegado a la Torre del Hechicero.");
             juego.mostrarResultados();
         } else {
             String escenario = juego.getNodoActualEscenario();
             String acertijo = juego.getNodoActualEnigma();
-            
+
             System.out.println("Se ejecuta el de nivelGO"); //Debug
             JOptionPane.showMessageDialog(this, "Estás en: " + escenario + "\nAcertijo: " + acertijo);
 
@@ -141,7 +140,7 @@ public class NivelGO extends javax.swing.JFrame {
         }
     }
 
-    private void solicitarRespuesta() {
+    public void solicitarRespuesta() {
         String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
 
         // Verificar si el usuario canceló (respuesta == null)
@@ -151,7 +150,7 @@ public class NivelGO extends javax.swing.JFrame {
 
             Menu_Bienvenido menu = new Menu_Bienvenido();
             menu.setVisible(true);
-            
+
             this.dispose();  // Cierra la ventana actual (NivelGO)
             return;  // Terminar el método para no continuar el flujo
         }
@@ -184,9 +183,9 @@ public class NivelGO extends javax.swing.JFrame {
 
     private void BtIrAlArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIrAlArbolActionPerformed
         this.setVisible(false);
-
-        ArbolFrame af = new ArbolFrame();
+        ArbolFrame af = new ArbolFrame(this);
         af.setVisible(true);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_BtIrAlArbolActionPerformed
 
