@@ -4,12 +4,12 @@ public class Arbol {
 
     Nodo raiz;
 
-    // Constructor que inicializa el árbol vacío
+   
     public Arbol() {
         this.raiz = null;
     }
 
-    // Método para insertar un nuevo nodo en el árbol
+    // Insertar un nuevo nodo en el árbol
     public Nodo insertarNodo(String escenario, String enigma, boolean hojaLlegada, int id) {
         Nodo nuevoNodo = new Nodo(escenario, enigma, hojaLlegada, id);
         if (raiz == null) {
@@ -40,7 +40,7 @@ public class Arbol {
         return nuevoNodo;
     }
 
-    // Método para buscar la hoja de llegada
+    //Buscar la hoja de llegada
     public Nodo buscarHojaDeLlegada(Nodo nodo) {
         if (nodo == null || (nodo.izquierda == null && nodo.derecha == null)) {
             return nodo;
@@ -48,7 +48,7 @@ public class Arbol {
         return buscarHojaDeLlegada(nodo.izquierda != null ? nodo.izquierda : nodo.derecha);
     }
 
-    // Método para recorrer el árbol e imprimir los escenarios
+    //Recorrer el árbol e imprimir los escenarios
     public void recorrerArbol(Nodo nodo) {
         if (nodo != null) {
             System.out.println(nodo.escenario);
@@ -57,7 +57,7 @@ public class Arbol {
         }
     }
 
-    // Método para actualizar un nodo
+    // Actualizar un nodo
     public void actualizarNodo(Nodo nodo, String nuevoEscenario, String nuevoEnigma, boolean nuevaHojaLlegada) {
         if (nodo != null) {
             nodo.escenario = nuevoEscenario;
@@ -66,7 +66,7 @@ public class Arbol {
         }
     }
 
-    // Método para eliminar un nodo
+    // Eliminar un nodo
     public Nodo eliminarNodo(Nodo raiz, String escenario) {
         if (raiz == null) {
             return null;

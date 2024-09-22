@@ -73,7 +73,7 @@ public class ArbolFrame extends javax.swing.JFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_BtRegresarActionPerformed
-// NO se debe descomentar el main el algoritmo SIRVE asi
+// NO se debe descomentar el main, el algoritmo SIRVE asi
     /**
      * @param args the command line arguments
      */

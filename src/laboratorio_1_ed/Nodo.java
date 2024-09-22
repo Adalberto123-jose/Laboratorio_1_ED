@@ -8,12 +8,12 @@ public class Nodo {
     String enigma;  // Acertijo asociado al nodo
     public int id;  // Añade un atributo para el ID
 
-    // Constructor
+    
     public Nodo(String escenario, String enigma, boolean hojaLlegada, int id) {
         this.escenario = escenario;
         this.enigma = enigma;
         this.hojaLlegada = hojaLlegada;
-        this.id = id;  // Asigna el ID
+        this.id = id; 
         izquierda = derecha = null;
     }
 }

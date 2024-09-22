@@ -13,7 +13,7 @@ public class Acertijo {
     public Acertijo() {
         acertijosDisponibles = new ArrayList<>();
         acertijosUsados = new ArrayList<>();
-        agregarAcertijos(); // Llamada correcta aquí
+        agregarAcertijos(); 
     }
 
     public class AcertijoPregunta {
@@ -39,7 +39,7 @@ public class Acertijo {
     }
 
     private void agregarAcertijos() {
-        // Aquí agregar acertijos a acertijosDisponibles
+        //Agregar acertijos a acertijosDisponibles
         acertijosDisponibles.add(new AcertijoPregunta("¿Cuántas patas tiene una araña?", "Ocho", new String[]{"Seis", "Siete"}));
         acertijosDisponibles.add(new AcertijoPregunta("Mucho de eso te mata, pero nada también. Lo tenemos todos. ¿Qué es?", "Agua", new String[]{"Comida", "Sol"}));
         acertijosDisponibles.add(new AcertijoPregunta("Cuando cae del cielo, todo florece en el suelo. ¿Qué es?", "Lluvia", new String[]{"Sol", "Nieve"}));
@@ -85,7 +85,7 @@ public class Acertijo {
     private void reiniciarAcertijos() {
         acertijosDisponibles.clear();
         acertijosUsados.clear();
-        agregarAcertijos(); // Aquí debes agregar los acertijos de la dificultad seleccionada
+        agregarAcertijos(); // Se agragan los acertijos de la dificultad (en este caso, solo facil)
         System.out.println("Acertijos disponibles cargados: " + acertijosDisponibles.size());
     }
 

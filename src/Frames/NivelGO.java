@@ -144,7 +144,7 @@ public class NivelGO extends javax.swing.JFrame {
     public void solicitarRespuesta() {
         String respuesta = JOptionPane.showInputDialog(this, "Tu respuesta:");
 
-        // Verificar si el usuario canceló (respuesta == null)
+        // Si el jugador cancela (respuesta == null)
         if (respuesta == null) {
             // El usuario canceló, cerrar el juego
             JOptionPane.showMessageDialog(this, "Has cancelado el juego.");

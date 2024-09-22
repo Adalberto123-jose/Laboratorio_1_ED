@@ -5,27 +5,27 @@ import javax.swing.JOptionPane;
 
 public class Juego {
 
-    private Arbol arbol;  // Instancia del árbol
-    public Nodo nodoActual;  // El nodo donde está el jugador
+    private Arbol arbol; 
+    public Nodo nodoActual; 
     private Acertijo acertijos;  // Instancia de la clase Acertijo para manejar los acertijos
-    private Acertijo.AcertijoPregunta acertijoActual;  // Guardamos el acertijo actual para verificar la respuesta
+    private Acertijo.AcertijoPregunta acertijoActual;  // Se guarda el acertijo actual para verificar la respuesta
     public int respuestasCorrectas;
     public int respuestasIncorrectas;
     public int puntaje;
 
-    // Constructor que acepta una instancia de Acertijo
+    
     public Juego() {
         arbol = new Arbol();
-        acertijos = new Acertijo();  // Inicializar la clase de acertijos
+        acertijos = new Acertijo(); 
         respuestasCorrectas = 0;
         respuestasIncorrectas = 0;
         puntaje = 0;
         inicializarJuego();
     }
 
-    // Método para inicializar el juego con algunos nodos y acertijos
+    // Se inicializa el juego con métodos y acertijos
     public void inicializarJuego() {
-        // Crear los nodos
+       
         Nodo nodo1 = arbol.insertarNodo("Bosque Encantado", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,1);
         Nodo nodo2 = arbol.insertarNodo("Cueva Misteriosa", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,2);
         Nodo nodo3 = arbol.insertarNodo("Lago Cristalino", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,3);
@@ -42,7 +42,7 @@ public class Juego {
         Nodo nodo14 = arbol.insertarNodo("Bosque Tenebroso", acertijos.obtenerAcertijoAleatorio().getPregunta(), false,14);
         Nodo hojaDeLlegada = arbol.insertarNodo("Torre del Hechicero", acertijos.obtenerAcertijoAleatorio().getPregunta(), true,15);
 
-        // Conectar los nodos
+        
         nodo1.izquierda = nodo2;
         nodo1.derecha = nodo3;
         nodo2.izquierda = nodo4;
@@ -58,8 +58,8 @@ public class Juego {
         nodo7.izquierda = nodo14;
         nodo7.derecha = hojaDeLlegada;
 
-        nodoActual = arbol.raiz;  // El jugador comienza en la raíz del árbol
-        acertijoActual = acertijos.obtenerAcertijoAleatorio();  // Guardamos el primer acertijo
+        nodoActual = arbol.raiz;  
+        acertijoActual = acertijos.obtenerAcertijoAleatorio();  
     }
 
     public void iniciar() {
@@ -70,18 +70,18 @@ public class Juego {
 
     }
 
-// Método para verificar la respuesta del usuario
+// Este metodo verifica la respuesta en NivelGO
     public boolean verificarRespuesta(String respuesta) {
         return respuesta.equalsIgnoreCase(acertijoActual.getRespuesta());
     }
 
     public void actualizarPregunta() {
 
-        System.out.println("Se ejecuta el del juego");
+        System.out.println("Se ejecuta el del juego");//Debug, aunque esto en si sirve en NivelGO lol
         JOptionPane.showMessageDialog(null, "Estás en: " + nodoActual.escenario + "\nAcertijo: " + nodoActual.enigma);
     }
 
-    // Método para mostrar los resultados finales
+    // Este metodo muestra los resultados finales en NivelGO
     public void mostrarResultados() {
         JOptionPane.showMessageDialog(null, "Resultados Finales:\nPuntaje: " + puntaje
                 + "\nRespuestas Correctas: " + respuestasCorrectas
